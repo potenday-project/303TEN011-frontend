@@ -4,21 +4,23 @@ import { Dialog } from "@headlessui/react";
 import PageTitle from "../common/PageTitle";
 import SearchInput from "../common/SearchInput";
 import SearchBookContainer from "./SearchBookContainer";
+import RecentQueryContainer from "./RecentQueryContainer";
 import BottomButton from "../common/BottomButton";
 
 import type { BookInfo } from "@/constants/types";
 import { IconCancel } from "@/static/icons";
 import { useModalActions, useSearchBookModalState } from "@/store/useModalStore";
 import { useWriteActions } from "@/store/useWriteStore";
-import { recentQuery } from "@/util/recentQuery";
+import { useHistoryActions } from "@/store/useHistoryStore";
 
 const SearchBookModal = () => {
+  const { addHistory } = useHistoryActions();
   const [query, setQuery] = useState("");
   const handleSetQuery = (event: FormEvent<HTMLFormElement>, input: string) => {
     event.preventDefault();
-    if (input.trim().length === 0 || input === query) return;
+    if (input.trim().length === 0) return;
     setQuery(input);
-    recentQuery(input);
+    addHistory(input);
   };
 
   const [selectedBook, setSelectedBook] = useState<BookInfo>();
@@ -26,19 +28,21 @@ const SearchBookModal = () => {
     setSelectedBook(value);
   };
 
+  const { changeModalState } = useModalActions();
+  const isOpen = useSearchBookModalState();
+  const handleClose = () => {
+    changeModalState("searchBook");
+    setSelectedBook(undefined);
+    setQuery("");
+  };
+
   const { postData } = useWriteActions();
   const handleClickButton = () => {
     if (!selectedBook) return;
     postData("title", selectedBook.title);
     postData("author", selectedBook.authors.join(", "));
-    changeModalState("searchBook");
-  };
-
-  const { changeModalState } = useModalActions();
-  const isOpen = useSearchBookModalState();
-  const handleClose = () => {
-    changeModalState("searchBook");
-    setQuery("");
+    postData("thumbnail", selectedBook.thumbnail);
+    handleClose();
   };
 
   return (
@@ -53,9 +57,19 @@ const SearchBookModal = () => {
           <SearchInput onSubmit={handleSetQuery} placeholder="책 이름, 작가로 검색하기" />
         </Dialog.Title>
 
-        <SearchBookContainer query={query} onChange={handleSelectedBook} />
+        <Dialog.Description as="div" className={`mt-[-125px] h-full pt-[125px] pb-[60px]`}>
+          {query ? (
+            <SearchBookContainer
+              query={query}
+              onChange={handleSelectedBook}
+              handleClose={handleClose}
+            />
+          ) : (
+            <RecentQueryContainer />
+          )}
+        </Dialog.Description>
 
-        <BottomButton text="완료" onClick={handleClickButton} />
+        {selectedBook && <BottomButton text="완료" onClick={handleClickButton} />}
       </Dialog.Panel>
     </Dialog>
   );

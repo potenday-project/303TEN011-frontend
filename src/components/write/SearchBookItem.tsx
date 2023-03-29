@@ -12,7 +12,7 @@ const SearchBookItem = ({ item }: Props) => {
   return (
     <RadioGroup.Option
       value={item}
-      className="grid h-[90px] grid-cols-[50px_auto_30px] gap-[13px] border-b border-[#dfdfdf] p-[10px] ui-active:rounded-[10px] ui-active:bg-main-900"
+      className="grid h-[90px] w-full grid-cols-[50px_auto] gap-[13px] border-b border-[#dfdfdf] p-[10px] ui-checked:grid-cols-[50px_auto_30px] ui-checked:rounded-[10px] ui-checked:bg-main-900"
     >
       <div className="relative rounded-md bg-[#d9d9d9]">
         {item.thumbnail && (
@@ -27,12 +27,12 @@ const SearchBookItem = ({ item }: Props) => {
         )}
       </div>
 
-      <div className="flex w-full flex-col justify-center truncate">
-        <span className="font-bold ui-active:text-white">{item.title}</span>
+      <div className="flex flex-col items-start justify-center truncate">
+        <span className="font-bold ui-checked:text-white">{item.title}</span>
         <span className="text-sm font-normal text-[#777]">{item.authors.join(", ")}</span>
       </div>
 
-      <div className="hidden items-center justify-start ui-active:flex">
+      <div className="hidden items-center justify-start ui-checked:flex">
         <IconCheck />
       </div>
     </RadioGroup.Option>
