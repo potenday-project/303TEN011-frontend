@@ -13,7 +13,7 @@ const Nav = () => {
   const { pathname } = useRouter();
 
   return (
-    <nav className="fixed bottom-0 left-0 flex h-[60px] w-full items-center justify-center gap-[60px] rounded-t-[10px] bg-white">
+    <nav className="fixed bottom-0 left-0 z-20 flex h-[60px] w-full items-center justify-center gap-[60px] rounded-t-[10px] bg-white">
       {NAV_ITEM.map(({ href, icon, text }, idx) => (
         <Link
           href={href}
