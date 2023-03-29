@@ -11,3 +11,31 @@ body {
     min-height: -webkit-fill-available;
   }
 }
+
+input,
+textarea {
+  outline: none;
+}
+
+.gradient-btn {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #d7e8cf 0deg,
+    #f8e0d2 138.75deg,
+    #f8d2d9 258.75deg,
+    #d7e8cf 360deg
+  );
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.h-inner {
+  min-height: calc(100vh - 30px);
+}

@@ -32,10 +32,10 @@ const initialData = {
   author: "",
   thumbnail: "",
   content: "",
-  backgroundColor: "",
+  backgroundColor: "#414141",
   imageSize: "",
   fontStyle: "",
-  fontColor: "",
+  fontColor: "text-white",
 };
 
 const useWriteStore = create<WriteState>((set) => ({

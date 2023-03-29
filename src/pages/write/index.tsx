@@ -1,77 +1,51 @@
-import { ChangeEvent, useMemo, useState } from "react";
-import Image from "next/image";
+import { useRouter } from "next/router";
 
-import useDebounce from "@/hooks/common/useDebounce";
-import useIntersect from "@/hooks/common/useIntersect";
-import useGetSearchBook from "@/hooks/write/useGetSearchBook";
-import { Combobox } from "@headlessui/react";
-import { BookInfo } from "@/constants/types";
+import SearchBookModal from "@/components/write/SearchBookModal";
+import Container from "@/components/common/Container";
+import InnerContainer from "@/components/common/InnerContainer";
+import PageTitle from "@/components/common/PageTitle";
+import TextButton from "@/components/common/TextButton";
+import SelectBook from "@/components/write/SelectBook";
+import CardDecoTabBox from "@/components/write/CardDecoTabBox";
+import BottomButton from "@/components/common/BottomButton";
+
+import { useWriteActions } from "@/store/useWriteStore";
+import CardImage from "@/components/write/CardImage";
 
 const Write = () => {
-  const [selectedBook, setSelectedBook] = useState<BookInfo>();
-  const [query, setQuery] = useState("");
+  const { push } = useRouter();
 
-  const { data, hasNextPage, isFetching, fetchNextPage } = useGetSearchBook(useDebounce(query));
-  const contents = useMemo(() => (data ? data.pages.flatMap((page) => page.data) : []), [data]);
+  const handleClickWrite = () => {
+    console.log("handleClickWrite");
+  };
 
-  const ref = useIntersect(async (entry, observer) => {
-    observer.unobserve(entry.target);
-    if (hasNextPage && !isFetching) {
-      fetchNextPage();
-    }
-  });
-
-  const handleChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+  const { clearData } = useWriteActions();
+  const handleClickClose = () => {
+    push("/main").then(() => clearData());
   };
 
   return (
     <>
-      <Combobox onChange={setSelectedBook}>
-        <Combobox.Label>{selectedBook?.title}</Combobox.Label>
+      <SearchBookModal />
 
-        <Combobox.Button as="div" className="h-20 bg-slate-500">
-          <Combobox.Input
-            placeholder="책 제목, 저자등을 검색해보세요."
-            value={query}
-            onChange={handleChangeQuery}
-            className="w-full bg-slate-100"
-          />
-        </Combobox.Button>
+      <Container bgColor="bg-main-900" className="flex items-end">
+        <InnerContainer>
+          <header className="flex h-[70px] items-center justify-between rounded-t-[20px] bg-main-100 px-6">
+            <PageTitle title="오늘의 한줄" />
+            <TextButton text="닫기" onClick={handleClickClose} />
+          </header>
 
-        <Combobox.Options
-          static
-          className={`ui-not-open:hidden bg-green-400 h-80 max-h-80 overflow-y-auto`}
-        >
-          {!query && <div>이전에 검색한 목록이에요.</div>}
+          <div className="pb-[60px]">
+            <SelectBook />
 
-          {query &&
-            contents.map((item, idx) => (
-              <Combobox.Option
-                key={idx}
-                value={item}
-                className="grid grid-cols-[30px_auto] gap-3 h-11 border border-neutral-900"
-              >
-                <div className="relative">
-                  {item.thumbnail && (
-                    <Image
-                      className="object-contain"
-                      src={item.thumbnail}
-                      alt="커버이미지"
-                      fill
-                      sizes="120px"
-                      priority
-                    />
-                  )}
-                </div>
+            <CardImage />
 
-                <div className="truncate">{item.title}</div>
-              </Combobox.Option>
-            ))}
+            <CardDecoTabBox />
+          </div>
+        </InnerContainer>
+      </Container>
 
-          {query && hasNextPage && <div ref={ref}>loading</div>}
-        </Combobox.Options>
-      </Combobox>
+      <BottomButton text="완료" onClick={handleClickWrite} />
     </>
   );
 };
