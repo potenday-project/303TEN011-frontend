@@ -3,6 +3,7 @@ import { create } from "zustand";
 type Type =
   | "title"
   | "author"
+  | "thumbnail"
   | "content"
   | "backgroundColor"
   | "imageSize"
@@ -13,6 +14,7 @@ interface WriteState {
   data: {
     title: string;
     author: string;
+    thumbnail: string;
     content: string;
     backgroundColor: string;
     imageSize: string;
@@ -21,22 +23,29 @@ interface WriteState {
   };
   actions: {
     postData: (type: Type, cardData: string) => void;
+    clearData: () => void;
   };
 }
 
+const initialData = {
+  title: "",
+  author: "",
+  thumbnail: "",
+  content: "",
+  backgroundColor: "",
+  imageSize: "",
+  fontStyle: "",
+  fontColor: "",
+};
+
 const useWriteStore = create<WriteState>((set) => ({
-  data: {
-    title: "",
-    author: "",
-    content: "",
-    backgroundColor: "",
-    imageSize: "",
-    fontStyle: "",
-    fontColor: "",
-  },
+  data: initialData,
   actions: {
     postData: (type, cardData) => {
       set((state) => ({ ...state, data: { ...state.data, [type]: cardData } }));
+    },
+    clearData: () => {
+      set((state) => ({ ...state, data: initialData }));
     },
   },
 }));
