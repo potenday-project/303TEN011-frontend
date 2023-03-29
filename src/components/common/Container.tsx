@@ -1,10 +1,15 @@
 interface Props {
   children: React.ReactNode;
   bgColor?: "bg-main-100" | "bg-main-900";
+  className?: string;
 }
 
-const Container = ({ children, bgColor = "bg-main-100" }: Props) => {
-  return <main className={`relative min-h-screen ${bgColor} pt-5 pb-[60px]`}>{children}</main>;
+const Container = ({ children, className, bgColor = "bg-main-100" }: Props) => {
+  return (
+    <main className={`${className} relative h-full min-h-screen w-full min-w-[320px] ${bgColor}`}>
+      {children}
+    </main>
+  );
 };
 
 export default Container;
