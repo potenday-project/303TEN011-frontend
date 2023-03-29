@@ -30,10 +30,11 @@ export const IconSearch = ({ className }: Argument) => {
   );
 };
 
-export const IconCancel = ({ color = "#111111", onClick }: Argument) => {
+export const IconCancel = ({ color = "#111111", onClick, className }: Argument) => {
   return (
     <svg
       onClick={onClick}
+      className={className}
       width="20"
       height="20"
       viewBox="0 0 20 20"
