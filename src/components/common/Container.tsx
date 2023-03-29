@@ -4,9 +4,7 @@ interface Props {
 }
 
 const Container = ({ children, bgColor = "bg-main-100" }: Props) => {
-  return (
-    <main className={`relative h-full min-h-screen ${bgColor} pt-5 pb-[60px]`}>{children}</main>
-  );
+  return <main className={`relative min-h-screen ${bgColor} pt-5 pb-[60px]`}>{children}</main>;
 };
 
 export default Container;
