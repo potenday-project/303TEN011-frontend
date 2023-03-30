@@ -17,16 +17,6 @@ textarea {
   outline: none;
 }
 
-.gradient-btn {
-  background: conic-gradient(
-    from 180deg at 50% 50%,
-    #d7e8cf 0deg,
-    #f8e0d2 138.75deg,
-    #f8d2d9 258.75deg,
-    #d7e8cf 360deg
-  );
-}
-
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
@@ -37,7 +27,19 @@ textarea {
 }
 
 .h-inner {
-  min-height: calc(100vh - 30px);
+  min-height: calc(100vh - 50px);
+}
+
+.h-mainInner {
+  min-height: calc(100vh - 50px);
+}
+
+.h-archiveInner {
+  min-height: calc(100vh - 90px);
+}
+
+.h-archiveContainer {
+  height: calc(100vh - 185px);
 }
 
 .h-searchContainer {
