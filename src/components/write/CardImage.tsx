@@ -6,13 +6,13 @@ import { useWriteActions, useWriteState } from "@/store/useWriteStore";
 
 const CardImage = () => {
   const { postData } = useWriteActions();
-  const { backgroundColor, fontColor } = useWriteState();
+  const { backgroundColor, fontColor, imageSize } = useWriteState();
 
   return (
     <div className="relative px-6">
       <div
         style={{ backgroundColor }}
-        className={`mt-[10px] flex aspect-square w-full flex-col items-center justify-center gap-[14px] rounded-[10px] p-6 ${fontColor}`}
+        className={`mt-[10px] flex ${imageSize} w-full flex-col items-center justify-center gap-[14px] rounded-[10px] p-6 ${fontColor}`}
       >
         <IconQuote />
         <ReactTextareaAutosize

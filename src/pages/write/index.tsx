@@ -29,7 +29,7 @@ const Write = () => {
       <SearchBookModal />
 
       <Container bgColor="bg-main-900" className="flex items-end">
-        <InnerContainer>
+        <InnerContainer className="h-inner">
           <header className="flex h-[70px] items-center justify-between rounded-t-[20px] bg-main-100 px-6">
             <PageTitle title="오늘의 한줄" />
             <TextButton text="닫기" onClick={handleClickClose} />

@@ -47,3 +47,13 @@ textarea {
 .h-searchInnerContainer {
   height: calc(100% - 24px);
 }
+
+@layer components {
+  .deco-tab-group {
+    @apply scrollbar-hidden flex flex-nowrap gap-[10px] overflow-y-auto pr-6;
+  }
+
+  .deco-tab-option {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#d4d4d4] ui-checked:border-black;
+  }
+}

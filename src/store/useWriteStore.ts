@@ -33,7 +33,7 @@ const initialData = {
   thumbnail: "",
   content: "",
   backgroundColor: "#414141",
-  imageSize: "",
+  imageSize: "aspect-square",
   fontStyle: "",
   fontColor: "text-white",
 };

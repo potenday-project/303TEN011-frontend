@@ -1,10 +1,23 @@
-import { IconArrow } from "@/static/icons";
-import { useWriteActions, useWriteState } from "@/store/useWriteStore";
+import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { usePalette } from "color-thief-react";
-import { useState } from "react";
 
-type Tab = "none" | "background" | "spoide" | "font" | "size";
+import CardDecoTabButton from "./CardDecoTabButton";
+
+import { DEFAULT_COLOR } from "@/constants/arr";
+import {
+  IconArrow,
+  IconAspectLong,
+  IconAspectSquare,
+  IconCardSize,
+  IconFont,
+  IconSCoreDream,
+  IconSpoide,
+  IconTemplate,
+} from "@/static/icons";
+import { useWriteActions, useWriteState } from "@/store/useWriteStore";
+
+type Tab = "none" | "background" | "template" | "spoide" | "font" | "size";
 
 const CardDecoTabBox = () => {
   const [activeTab, setActiveTab] = useState<Tab>("none");
@@ -28,38 +41,94 @@ const CardDecoTabBox = () => {
   );
 
   return (
-    <div className="no-scrollbar relative overflow-x-auto py-[10px] px-6">
-      <button
-        onClick={() => handleActiveTab("background")}
-        className="gradient-btn flex h-[40px] w-[40px] rounded-lg border border-[#bababa]"
-      />
-
-      {activeTab === "background" && (
-        <div className="absolute top-[10px] left-6 flex items-center gap-[10px]">
-          <button
+    <>
+      {activeTab === "none" ? (
+        <div className="flex items-center justify-between py-[10px] px-6">
+          <div className="flex items-center gap-2">
+            <CardDecoTabButton
+              onClick={() => handleActiveTab("background")}
+              className="gradient-btn"
+            />
+            <CardDecoTabButton
+              onClick={() => handleActiveTab("template")}
+              icon={<IconTemplate />}
+            />
+            <CardDecoTabButton onClick={() => handleActiveTab("spoide")} icon={<IconSpoide />} />
+            <CardDecoTabButton onClick={() => handleActiveTab("font")} icon={<IconFont />} />
+          </div>
+          <CardDecoTabButton onClick={() => handleActiveTab("size")} icon={<IconCardSize />} />
+        </div>
+      ) : (
+        <div className="flex items-center gap-[9px] py-[10px] pl-6">
+          <CardDecoTabButton
             onClick={() => handleActiveTab("none")}
-            className="flex h-[40px] w-[40px] items-center justify-center rounded-lg bg-[#d4d4d4]"
-          >
-            <IconArrow />
-          </button>
+            icon={<IconArrow />}
+            className="shrink-0 bg-[#d4d4d4]"
+          />
 
-          <RadioGroup
-            className="flex gap-[10px] pr-5"
-            onChange={(value) => postData("backgroundColor", value)}
-            defaultValue={backgroundColor}
-          >
-            {colorData?.map((color) => (
-              <RadioGroup.Option
-                style={{ backgroundColor: color }}
-                className="h-9 w-9 rounded-lg border border-[#d4d4d4] ui-checked:border-black"
-                key={color}
-                value={color}
-              />
-            ))}
-          </RadioGroup>
+          {activeTab === "background" && (
+            <RadioGroup
+              className="deco-tab-group"
+              onChange={(value) => postData("backgroundColor", value)}
+              defaultValue={backgroundColor}
+            >
+              {DEFAULT_COLOR.map((color) => (
+                <RadioGroup.Option
+                  style={{ backgroundColor: color }}
+                  className="deco-tab-option"
+                  key={color}
+                  value={color}
+                />
+              ))}
+            </RadioGroup>
+          )}
+
+          {activeTab === "spoide" && (
+            <RadioGroup
+              className="deco-tab-group"
+              onChange={(value) => postData("backgroundColor", value)}
+              defaultValue={backgroundColor}
+            >
+              {colorData?.map((color) => (
+                <RadioGroup.Option
+                  style={{ backgroundColor: color }}
+                  className="deco-tab-option"
+                  key={color}
+                  value={color}
+                />
+              ))}
+            </RadioGroup>
+          )}
+
+          {activeTab === "font" && (
+            <RadioGroup
+              className="deco-tab-group"
+              onChange={(value) => postData("fontStyle", value)}
+              defaultValue={backgroundColor}
+            >
+              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="aspect-square">
+                <IconSCoreDream />
+              </RadioGroup.Option>
+            </RadioGroup>
+          )}
+
+          {activeTab === "size" && (
+            <RadioGroup
+              className="deco-tab-group"
+              onChange={(value) => postData("imageSize", value)}
+              defaultValue={backgroundColor}
+            >
+              <RadioGroup.Option className="deco-tab-option" value="aspect-square">
+                <IconAspectSquare />
+              </RadioGroup.Option>
+              <RadioGroup.Option className="deco-tab-option" value="aspect-[9/16]">
+                <IconAspectLong />
+              </RadioGroup.Option>
+            </RadioGroup>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
