@@ -10,8 +10,11 @@ import {
   IconAspectLong,
   IconAspectSquare,
   IconBasicColor,
+  IconBasicFont,
+  IconBookk,
   IconCardSize,
   IconFont,
+  IconJSongMyung,
   IconSCoreDream,
   IconSpoide,
   IconTemplate,
@@ -107,8 +110,17 @@ const CardDecoTabBox = () => {
               onChange={(value) => postData("fontStyle", value)}
               defaultValue={fontStyle}
             >
-              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="aspect-square">
+              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="font-pretendard">
+                <IconBasicFont />
+              </RadioGroup.Option>
+              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="font-scdream">
                 <IconSCoreDream />
+              </RadioGroup.Option>
+              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="font-bookk">
+                <IconBookk />
+              </RadioGroup.Option>
+              <RadioGroup.Option className="deco-tab-option w-fit px-3" value="font-jsongmyung">
+                <IconJSongMyung />
               </RadioGroup.Option>
             </RadioGroup>
           )}

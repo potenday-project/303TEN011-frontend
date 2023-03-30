@@ -3,10 +3,11 @@ import { RadioGroup } from "@headlessui/react";
 
 import { IconQuote } from "@/static/icons";
 import { useWriteActions, useWriteState } from "@/store/useWriteStore";
+import { bookk, jsongmyung, pretendard, scdream } from "@/util/fonts";
 
 const CardImage = () => {
   const { postData } = useWriteActions();
-  const { backgroundColor, fontColor, imageSize } = useWriteState();
+  const { backgroundColor, fontColor, imageSize, fontStyle } = useWriteState();
 
   return (
     <div className="relative px-6">
@@ -17,7 +18,9 @@ const CardImage = () => {
         <IconQuote />
         <ReactTextareaAutosize
           placeholder="오늘의 한줄을 입력해주세요"
-          className={`w-full resize-none bg-transparent text-center font-semibold ${
+          className={`w-full resize-none bg-transparent text-center ${pretendard.variable} ${
+            scdream.variable
+          } ${bookk.variable} ${jsongmyung.variable} ${fontStyle} ${
             fontColor === "text-white" ? "placeholder:text-white" : "placeholder:text-black"
           }`}
           maxLength={96}

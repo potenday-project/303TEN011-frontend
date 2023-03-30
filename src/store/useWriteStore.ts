@@ -34,7 +34,7 @@ const initialData = {
   content: "",
   backgroundColor: "#414141",
   imageSize: "aspect-square",
-  fontStyle: "basic",
+  fontStyle: "font-pretendard",
   fontColor: "text-white",
 };
 
