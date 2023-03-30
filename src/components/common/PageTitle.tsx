@@ -3,7 +3,7 @@ interface Props {
   fontWeight?: string;
   fontSize?: "text-xl" | "text-lg" | "text-2xl";
   fontColor?: "text-main-900" | "text-white";
-  lineColor?: "bg-[#ddd]" | "bg-[#616161]";
+  lineColor?: "bg-[#ddd]" | "bg-[#616161]" | "bg-[#0C0B0B]";
   lineWeight?: "h-3" | "h-[10px]";
   className?: string;
 }
