@@ -18,7 +18,7 @@ const Nav = () => {
         <Link
           href={href}
           key={idx}
-          className={`flex flex-col items-center justify-center gap-[4px] ${
+          className={`flex w-[50px] flex-col items-center justify-center gap-[4px] ${
             pathname === href ? "text-main-900" : "text-[#d7d7d7]"
           }`}
         >

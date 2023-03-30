@@ -8,7 +8,7 @@ import { IconDrawer } from "@/static/icons";
 const Main = () => {
   return (
     <>
-      <Container bgColor="bg-main-900" className="pt-[290px]">
+      <Container bgColor="bg-main-900" className="pt-[240px]">
         <header className="fixed top-0 flex h-[50px] w-full items-center justify-between bg-main-900 px-6">
           <PageTitle
             title="하루 한줄"
@@ -21,7 +21,7 @@ const Main = () => {
           <IconDrawer />
         </header>
 
-        <InnerContainer className="min-h-screen px-6 pt-7 pb-[60px]">
+        <InnerContainer className="h-mainInner mt-[50px] px-6 pt-7 pb-[60px]">
           <WriteButton />
 
           <PageTitle title="오늘의 한줄" className="mt-9" />
