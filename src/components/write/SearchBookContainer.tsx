@@ -36,7 +36,7 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
   return (
     <>
       {!isFetching && contents.length === 0 ? (
-        <div className="flex h-full flex-col items-center justify-center px-6">
+        <div className="flex h-full flex-col items-center justify-center">
           <span className="text-[#6a6a6a]">검색 결과가 없습니다🥲</span>
           <Image
             className="mt-[14px]"
@@ -56,7 +56,7 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
         <>
           <ContainerTitle title="검색 결과" />
 
-          <RadioGroup onChange={onChange} className="h-full overflow-y-auto px-6 pb-[30px]">
+          <RadioGroup onChange={onChange} className="h-searchInnerContainer overflow-y-auto">
             {contents.map((item, idx) => (
               <SearchBookItem key={idx} item={item} />
             ))}

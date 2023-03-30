@@ -18,7 +18,7 @@ const SearchBookModal = () => {
   const [query, setQuery] = useState("");
   const handleSetQuery = (event: FormEvent<HTMLFormElement>, input: string) => {
     event.preventDefault();
-    if (input.trim().length === 0) return;
+    if (input.trim().length === 0 || input === query) return;
     setQuery(input);
     addHistory(input);
   };
@@ -57,7 +57,10 @@ const SearchBookModal = () => {
           <SearchInput onSubmit={handleSetQuery} placeholder="책 이름, 작가로 검색하기" />
         </Dialog.Title>
 
-        <Dialog.Description as="div" className={`mt-[-125px] h-full pt-[125px] pb-[60px]`}>
+        <Dialog.Description
+          as="div"
+          className={`h-searchContainer px-6 ${selectedBook && "pb-[60px]"}`}
+        >
           {query ? (
             <SearchBookContainer
               query={query}

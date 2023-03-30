@@ -12,24 +12,28 @@ const SearchBookItem = ({ item }: Props) => {
   return (
     <RadioGroup.Option
       value={item}
-      className="grid h-[90px] w-full grid-cols-[50px_auto] gap-[13px] border-b border-[#dfdfdf] p-[10px] ui-checked:grid-cols-[50px_auto_30px] ui-checked:rounded-[10px] ui-checked:bg-main-900"
+      className="flex h-[70px] items-center justify-between gap-[13px] border-b border-[#dfdfdf] p-[10px] ui-checked:rounded-[10px] ui-checked:bg-main-900"
     >
-      <div className="relative rounded-md bg-[#d9d9d9]">
-        {item.thumbnail && (
-          <Image
-            className="rounded-md object-cover"
-            src={item.thumbnail}
-            alt="커버이미지"
-            fill
-            sizes="120px"
-            priority
-          />
-        )}
-      </div>
+      <div className="flex items-center gap-3 overflow-hidden">
+        <div className="relative h-[50px] w-[50px] shrink-0 rounded-md bg-[#d9d9d9]">
+          {item.thumbnail && (
+            <Image
+              className="rounded-md object-cover"
+              src={item.thumbnail}
+              alt="커버이미지"
+              fill
+              sizes="120px"
+              priority
+            />
+          )}
+        </div>
 
-      <div className="flex flex-col items-start justify-center truncate">
-        <span className="font-bold ui-checked:text-white">{item.title}</span>
-        <span className="text-sm font-normal text-[#777]">{item.authors.join(", ")}</span>
+        <div className="flex min-w-0 flex-col">
+          <span className="block truncate font-bold ui-checked:text-white">{item.title}</span>
+          <span className="block truncate text-sm font-normal text-[#777]">
+            {item.authors.join(", ")}
+          </span>
+        </div>
       </div>
 
       <div className="hidden items-center justify-start ui-checked:flex">

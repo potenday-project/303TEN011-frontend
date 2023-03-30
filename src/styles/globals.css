@@ -39,3 +39,11 @@ textarea {
 .h-inner {
   min-height: calc(100vh - 30px);
 }
+
+.h-searchContainer {
+  height: calc(100vh - 125px);
+}
+
+.h-searchInnerContainer {
+  height: calc(100% - 24px);
+}

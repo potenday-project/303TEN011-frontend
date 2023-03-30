@@ -6,7 +6,7 @@ interface Props {
 
 const ContainerTitle = ({ title }: Props) => {
   return (
-    <Dialog.Description className="flex h-[24px] items-center px-6 text-xs text-[#aaa]">
+    <Dialog.Description className="flex h-[24px] items-center text-xs text-[#aaa]">
       {title}
     </Dialog.Description>
   );
