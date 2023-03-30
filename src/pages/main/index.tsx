@@ -1,13 +1,15 @@
 import Container from "@/components/common/Container";
+import InnerContainer from "@/components/common/InnerContainer";
 import Nav from "@/components/common/Nav";
 import PageTitle from "@/components/common/PageTitle";
-import { IconSearch } from "@/static/icons";
+import WriteButton from "@/components/main/WriteButton";
+import { IconDrawer } from "@/static/icons";
 
 const Main = () => {
   return (
     <>
-      <Container bgColor="bg-main-900">
-        <header className="grid grid-cols-[auto_24px] px-6">
+      <Container bgColor="bg-main-900" className="pt-[290px]">
+        <header className="fixed top-0 flex h-[50px] w-full items-center justify-between bg-main-900 px-6">
           <PageTitle
             title="하루 한줄"
             fontSize="text-lg"
@@ -16,8 +18,14 @@ const Main = () => {
             lineWeight="h-[10px]"
           />
 
-          <IconSearch />
+          <IconDrawer />
         </header>
+
+        <InnerContainer className="min-h-screen px-6 pt-7 pb-[60px]">
+          <WriteButton />
+
+          <PageTitle title="오늘의 한줄" className="mt-9" />
+        </InnerContainer>
       </Container>
 
       <Nav />
