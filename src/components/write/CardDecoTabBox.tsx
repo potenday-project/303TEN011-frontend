@@ -9,6 +9,7 @@ import {
   IconArrow,
   IconAspectLong,
   IconAspectSquare,
+  IconBasicColor,
   IconCardSize,
   IconFont,
   IconSCoreDream,
@@ -26,7 +27,7 @@ const CardDecoTabBox = () => {
   };
 
   const { postData } = useWriteActions();
-  const { thumbnail, backgroundColor } = useWriteState();
+  const { thumbnail, backgroundColor, fontStyle, imageSize } = useWriteState();
   const { data: colorData } = usePalette(
     thumbnail
       ? `https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=${encodeURIComponent(
@@ -47,7 +48,7 @@ const CardDecoTabBox = () => {
           <div className="flex items-center gap-2">
             <CardDecoTabButton
               onClick={() => handleActiveTab("background")}
-              className="gradient-btn"
+              icon={<IconBasicColor />}
             />
             <CardDecoTabButton
               onClick={() => handleActiveTab("template")}
@@ -104,7 +105,7 @@ const CardDecoTabBox = () => {
             <RadioGroup
               className="deco-tab-group"
               onChange={(value) => postData("fontStyle", value)}
-              defaultValue={backgroundColor}
+              defaultValue={fontStyle}
             >
               <RadioGroup.Option className="deco-tab-option w-fit px-3" value="aspect-square">
                 <IconSCoreDream />
@@ -116,7 +117,7 @@ const CardDecoTabBox = () => {
             <RadioGroup
               className="deco-tab-group"
               onChange={(value) => postData("imageSize", value)}
-              defaultValue={backgroundColor}
+              defaultValue={imageSize}
             >
               <RadioGroup.Option className="deco-tab-option" value="aspect-square">
                 <IconAspectSquare />
