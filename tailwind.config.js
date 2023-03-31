@@ -19,6 +19,7 @@ module.exports = {
         xl: ["21px", "24px"],
         headline1: ["25px", "34px"],
         headline2: ["21px", "30px"],
+        headline3: ["18px", "24px"],
         body1: ["16px", "24px"],
         body2: ["14px", "20px"],
         caption1: ["12px", "14px"],
