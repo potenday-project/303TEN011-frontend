@@ -1,28 +1,24 @@
 interface Props {
   title: string;
-  fontWeight?: string;
-  fontSize?: "text-xl" | "text-lg" | "text-2xl";
+  fontSize?: "text-headline1" | "text-headline2" | "text-headline3";
   fontColor?: "text-main-900" | "text-white";
   lineColor?: "bg-[#ddd]" | "bg-[#616161]" | "bg-[#0C0B0B]";
-  lineWeight?: "h-3" | "h-[10px]";
   className?: string;
 }
 
 const PageTitle = ({
   title,
-  fontWeight = "font-extrabold",
-  fontSize = "text-xl",
+  fontSize = "text-headline2",
   fontColor = "text-main-900",
   lineColor = "bg-[#ddd]",
-  lineWeight = "h-3",
   className,
 }: Props) => {
   return (
     <div className={`${className} relative w-fit`}>
-      <h1 className={`tex text relative z-10 block px-1 ${fontWeight} ${fontSize} ${fontColor}`}>
+      <h1 className={`relative z-10 block px-1 font-extrabold ${fontSize} ${fontColor}`}>
         {title}
       </h1>
-      <div className={`absolute left-0 bottom-[-1px] ${lineWeight} w-full ${lineColor}`} />
+      <div className={`absolute left-0 bottom-0 h-3 w-full ${lineColor}`} />
     </div>
   );
 };
