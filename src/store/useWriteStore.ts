@@ -1,26 +1,19 @@
+import { CardData } from "@/apis/api";
 import { create } from "zustand";
+import { shallow } from "zustand/shallow";
 
 type Type =
   | "title"
   | "author"
-  | "thumbnail"
   | "content"
+  | "thumbnail"
   | "backgroundColor"
   | "imageSize"
   | "fontStyle"
   | "fontColor";
 
 interface WriteState {
-  data: {
-    title: string;
-    author: string;
-    thumbnail: string;
-    content: string;
-    backgroundColor: string;
-    imageSize: string;
-    fontStyle: string;
-    fontColor: string;
-  };
+  data: CardData;
   actions: {
     postData: (type: Type, cardData: string) => void;
     clearData: () => void;
@@ -30,8 +23,8 @@ interface WriteState {
 const initialData = {
   title: "",
   author: "",
-  thumbnail: "",
   content: "",
+  thumbnail: "",
   backgroundColor: "#414141",
   imageSize: "aspect-square",
   fontStyle: "font-pretendard",
@@ -53,5 +46,4 @@ const useWriteStore = create<WriteState>((set) => ({
 export default useWriteStore;
 
 export const useWriteActions = () => useWriteStore((state) => state.actions);
-
-export const useWriteState = () => useWriteStore((state) => state.data);
+export const useWriteState = () => useWriteStore((state) => state.data, shallow);

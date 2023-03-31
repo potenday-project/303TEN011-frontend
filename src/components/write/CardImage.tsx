@@ -7,7 +7,7 @@ import { bookk, jsongmyung, pretendard, scdream } from "@/util/fonts";
 
 const CardImage = () => {
   const { postData } = useWriteActions();
-  const { backgroundColor, fontColor, imageSize, fontStyle } = useWriteState();
+  const { backgroundColor, fontColor, imageSize, fontStyle, content } = useWriteState();
 
   return (
     <div className="relative px-6">
@@ -18,6 +18,8 @@ const CardImage = () => {
         <IconQuote />
         <ReactTextareaAutosize
           placeholder="오늘의 한줄을 입력해주세요"
+          value={content}
+          onChange={(event) => postData("content", event.target.value)}
           className={`w-full resize-none bg-transparent text-center ${pretendard.variable} ${
             scdream.variable
           } ${bookk.variable} ${jsongmyung.variable} ${fontStyle} ${

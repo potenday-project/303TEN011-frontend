@@ -11,12 +11,14 @@ import BottomButton from "@/components/common/BottomButton";
 import CardImage from "@/components/write/CardImage";
 
 import { useWriteActions } from "@/store/useWriteStore";
+import usePostCard from "@/hooks/write/usePostCard";
 
 const Write = () => {
   const { back } = useRouter();
+  const { mutate } = usePostCard();
 
   const handleClickWrite = () => {
-    console.log("handleClickWrite");
+    mutate();
   };
 
   const { clearData } = useWriteActions();
