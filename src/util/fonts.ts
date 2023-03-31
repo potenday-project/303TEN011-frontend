@@ -38,6 +38,10 @@ export const pretendard = localFont({
       path: "../static/fonts/Pretendard-Bold.woff",
       weight: "700",
     },
+    {
+      path: "../static/fonts/Pretendard-ExtraBold.woff",
+      weight: "800",
+    },
   ],
   variable: "--font-pretendard",
 });
