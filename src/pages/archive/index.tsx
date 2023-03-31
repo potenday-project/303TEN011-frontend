@@ -1,12 +1,19 @@
 import SearchArchiveModal from "@/components/archive/SearchArchiveModal";
+import ArchiveCard from "@/components/common/ArchiveCard";
 import Container from "@/components/common/Container";
 import InnerContainer from "@/components/common/InnerContainer";
 import Nav from "@/components/common/Nav";
 import PageTitle from "@/components/common/PageTitle";
+import useGetArchive from "@/hooks/archive/useGetArchive";
 import { IconSearch } from "@/static/icons";
 import { useModalActions } from "@/store/useModalStore";
+import Link from "next/link";
 
 const Archive = () => {
+  const { data } = useGetArchive();
+
+  console.log(data);
+
   const { changeModalState } = useModalActions();
   const handleClickModalButton = () => {
     changeModalState("searchArchive");
@@ -31,13 +38,10 @@ const Archive = () => {
 
         <InnerContainer className="h-archiveInner px-6 pt-[35px] pb-[60px]">
           <div className="h-archiveContainer grid grid-cols-2 content-start gap-3 overflow-y-auto">
-            {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-              <div
-                key={item}
-                className={`${
-                  item === 1 ? "aspect-[9/16]" : "aspect-square"
-                } h-fit w-full rounded-[10px] bg-blue-200`}
-              ></div>
+            {data?.map((item, idx) => (
+              <Link href={`/archive/${item}`} key={idx}>
+                <ArchiveCard item={item} />
+              </Link>
             ))}
           </div>
         </InnerContainer>
