@@ -45,9 +45,10 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
             width={178}
             height={113}
           />
+          <div className="mt-[40px] text-ellipsis break-words break-all text-center font-bold">{`'${query}' (으)로`}</div>
           <button
             onClick={handleClickButton}
-            className="mt-[40px] h-[60px] w-full rounded-[10px] bg-[#ececec] font-medium"
+            className="mt-1 h-[60px] w-full rounded-[10px] bg-[#ececec] font-medium"
           >
             책 이름 <span className="font-extrabold">직접 입력하기</span>
           </button>

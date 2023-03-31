@@ -4,6 +4,7 @@ import SearchInput from "../common/SearchInput";
 
 import { IconCancel } from "@/static/icons";
 import { useModalActions, useSearchArchiveModalState } from "@/store/useModalStore";
+import { FormEvent } from "react";
 
 const SearchArchiveModal = () => {
   const { changeModalState } = useModalActions();
@@ -12,7 +13,8 @@ const SearchArchiveModal = () => {
     changeModalState("searchArchive");
   };
 
-  const handleSetQuery = () => {
+  const handleSetQuery = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     console.log("handle");
   };
 
