@@ -5,6 +5,38 @@ interface Argument {
   onClick?: () => void;
 }
 
+// 네비게이션 아이콘
+export const IconHome = () => {
+  return (
+    <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M12.5 3.3625L18.75 8.9875V18.75H16.25V11.25H8.75V18.75H6.25V8.9875L12.5 3.3625V3.3625ZM12.5 0L0 11.25H3.75V21.25H11.25V13.75H13.75V21.25H21.25V11.25H25L12.5 0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const IconPlus = () => {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 0V20" stroke="currentColor" strokeWidth="3" />
+      <path d="M20 10L-5.66244e-07 10" stroke="currentColor" strokeWidth="3" />
+    </svg>
+  );
+};
+
+export const IconArchive = () => {
+  return (
+    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M18 2H10L8 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18.77C19.45 16 20 15.44 20 14.77V4C20 2.9 19.1 2 18 2ZM18 14H2V2H7.17L9.17 4H18V14ZM16 8H4V6H16V8ZM12 12H4V10H12V12Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 export const IconSearch = ({ className }: Argument) => {
   return (
     <svg
@@ -111,37 +143,6 @@ export const IconCheck = () => {
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="11" cy="11" r="11" fill="white" />
       <path d="M6 11.5L9.5 15L16.5 7" stroke="#2C2A29" strokeWidth="2" />
-    </svg>
-  );
-};
-
-export const IconHome = () => {
-  return (
-    <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M12.5 3.3625L18.75 8.9875V18.75H16.25V11.25H8.75V18.75H6.25V8.9875L12.5 3.3625V3.3625ZM12.5 0L0 11.25H3.75V21.25H11.25V13.75H13.75V21.25H21.25V11.25H25L12.5 0Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-};
-
-export const IconPlus = () => {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 0V20" stroke="currentColor" strokeWidth="3" />
-      <path d="M20 10L-5.66244e-07 10" stroke="currentColor" strokeWidth="3" />
-    </svg>
-  );
-};
-
-export const IconArchive = () => {
-  return (
-    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M18 2H10L8 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18.77C19.45 16 20 15.44 20 14.77V4C20 2.9 19.1 2 18 2ZM18 14H2V2H7.17L9.17 4H18V14ZM16 8H4V6H16V8ZM12 12H4V10H12V12Z"
-        fill="currentColor"
-      />
     </svg>
   );
 };

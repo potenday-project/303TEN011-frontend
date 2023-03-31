@@ -22,8 +22,8 @@ const Nav = () => {
             pathname === href ? "text-main-900" : "text-[#d7d7d7]"
           }`}
         >
-          <div className="flex h-6 w-6 items-center justify-center">{icon}</div>
-          <span className={`text-xs font-bold`}>{text}</span>
+          <div className="flex h-6 items-center justify-center">{icon}</div>
+          <span className="text-caption1 font-bold">{text}</span>
         </Link>
       ))}
     </nav>
