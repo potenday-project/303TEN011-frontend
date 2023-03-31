@@ -26,30 +26,6 @@ textarea {
   scrollbar-width: none; /* Firefox */
 }
 
-.h-inner {
-  min-height: calc(100vh - 50px);
-}
-
-.h-mainInner {
-  min-height: calc(100vh - 50px);
-}
-
-.h-archiveInner {
-  min-height: calc(100vh - 90px);
-}
-
-.h-archiveContainer {
-  height: calc(100vh - 185px);
-}
-
-.h-searchContainer {
-  height: calc(100vh - 125px);
-}
-
-.h-searchInnerContainer {
-  height: calc(100% - 24px);
-}
-
 @layer components {
   .deco-tab-group {
     @apply scrollbar-hidden flex flex-nowrap gap-[10px] overflow-y-auto pr-6;
