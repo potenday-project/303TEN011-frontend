@@ -11,16 +11,25 @@ import type { BookInfo } from "@/constants/types";
 import { IconCancel } from "@/static/icons";
 import { useModalActions, useSearchBookModalState } from "@/store/useModalStore";
 import { useWriteActions } from "@/store/useWriteStore";
-import { useHistoryActions } from "@/store/useHistoryStore";
+import useHistoryStore, { useStore } from "@/store/useHistoryStore";
 
 const SearchBookModal = () => {
-  const { addHistory } = useHistoryActions();
   const [query, setQuery] = useState("");
+  const historyStore = useStore(useHistoryStore, (state) => state);
   const handleSetQuery = (event: FormEvent<HTMLFormElement>, input: string) => {
     event.preventDefault();
     if (input.trim().length === 0 || input === query) return;
     setQuery(input);
-    addHistory(input);
+    if (historyStore?.addHistory) {
+      historyStore.addHistory(input);
+    }
+  };
+
+  const handleClickRecent = (input: string) => {
+    setQuery(input);
+    if (historyStore?.addHistory) {
+      historyStore.addHistory(input);
+    }
   };
 
   const [selectedBook, setSelectedBook] = useState<BookInfo>();
@@ -54,7 +63,11 @@ const SearchBookModal = () => {
             <IconCancel onClick={handleClose} />
           </div>
 
-          <SearchInput onSubmit={handleSetQuery} placeholder="책 이름, 작가로 검색하기" />
+          <SearchInput
+            query={query}
+            onSubmit={handleSetQuery}
+            placeholder="책 이름, 작가로 검색하기"
+          />
         </Dialog.Title>
 
         <Dialog.Description
@@ -68,7 +81,7 @@ const SearchBookModal = () => {
               handleClose={handleClose}
             />
           ) : (
-            <RecentQueryContainer />
+            <RecentQueryContainer onClick={handleClickRecent} />
           )}
         </Dialog.Description>
 
