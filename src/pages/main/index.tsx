@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <>
       <Container bgColor="bg-main-900" className="pt-[240px]">
-        <header className="fixed top-0 flex h-[290px] w-full flex-col gap-[25px] bg-main-900 px-6">
+        <header className="fixed top-0 flex h-[290px] w-full min-w-[320px] flex-col gap-[25px] bg-main-900 px-6">
           <div className="flex h-[50px] w-full items-center justify-between">
             <PageTitle
               title="하루 한줄"
