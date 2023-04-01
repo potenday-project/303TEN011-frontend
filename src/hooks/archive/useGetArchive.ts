@@ -1,8 +1,11 @@
 import { getArchive } from "@/apis/api";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 const useGetArchive = () => {
-  return useQuery(["archive"], getArchive);
+  return useInfiniteQuery(["archive"], getArchive, {
+    retry: 0,
+    getNextPageParam: (page) => (page.isLastPage ? undefined : page.nextPage),
+  });
 };
 
 export default useGetArchive;

@@ -28,6 +28,22 @@ export interface CardData {
   fontColor: string;
 }
 
+interface GetCardData extends CardData {
+  id: number;
+  createdDt: string;
+  modifiedDt: string;
+}
+
+interface Pageable {
+  first: boolean;
+  hasNext: boolean;
+  last: boolean;
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
+
 interface LoginData {
   email: string;
   nickname: string;
@@ -53,10 +69,13 @@ export const getRitual = async () => {
   return data;
 };
 
-export const getArchive = async () => {
-  const { data } = await api.get<CardData[]>("/api/archives");
+export const getArchive = async ({ pageParam = 1 }) => {
+  const { data } = await api.get<{ content: GetCardData[]; pageableCustom: Pageable }>(
+    "/api/archives",
+    { params: { page: pageParam } },
+  );
 
-  return data;
+  return { data: data.content, nextPage: pageParam + 1, isLastPage: !data.pageableCustom.hasNext };
 };
 
 export const postCard = async (cardData: CardData) => {
