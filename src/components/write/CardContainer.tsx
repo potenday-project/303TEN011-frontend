@@ -26,7 +26,7 @@ const CardContainer = () => {
             fontColor === "text-white" ? "placeholder:text-white" : "placeholder:text-black"
           }`}
           maxLength={96}
-          maxRows={9}
+          maxRows={7}
         />
 
         <FontColorPicker />
