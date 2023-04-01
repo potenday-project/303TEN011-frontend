@@ -1,30 +1,21 @@
-import { useRouter } from "next/router";
-
 import SearchBookModal from "@/components/write/SearchBookModal";
 import Container from "@/components/common/Container";
 import InnerContainer from "@/components/common/InnerContainer";
-import PageTitle from "@/components/common/PageTitle";
-import TextButton from "@/components/common/TextButton";
-import SelectBook from "@/components/write/SelectBook";
-import CardDecoTabBox from "@/components/write/CardDecoTabBox";
+import InnerContainerHeader from "@/components/common/InnerContainerHeader";
+import SelectBookContainer from "@/components/write/SelectBookContainer";
+import CardContainer from "@/components/write/CardContainer";
+import CardDecoContainer from "@/components/write/CardDecoContainer";
 import BottomButton from "@/components/common/BottomButton";
-import CardImage from "@/components/write/CardImage";
 
-import { useWriteActions } from "@/store/useWriteStore";
 import usePostCard from "@/hooks/write/usePostCard";
+import { useWriteActions } from "@/store/useWriteStore";
 
 const Write = () => {
-  const { back } = useRouter();
-  const { mutate } = usePostCard();
+  const { clearData } = useWriteActions();
 
+  const { mutate } = usePostCard();
   const handleClickWrite = () => {
     mutate();
-  };
-
-  const { clearData } = useWriteActions();
-  const handleClickClose = () => {
-    back();
-    clearData();
   };
 
   return (
@@ -32,19 +23,11 @@ const Write = () => {
       <SearchBookModal />
 
       <Container bgColor="bg-main-900" className="flex items-end">
-        <InnerContainer className="h-inner mt-[50px]">
-          <header className="flex h-[70px] items-center justify-between px-6">
-            <PageTitle title="오늘의 한줄" />
-            <TextButton text="닫기" onClick={handleClickClose} />
-          </header>
-
-          <div className="pb-[60px]">
-            <SelectBook />
-
-            <CardImage />
-
-            <CardDecoTabBox />
-          </div>
+        <InnerContainer className="h-inner-container pb-[60px]">
+          <InnerContainerHeader title="오늘의 한줄" func={clearData} />
+          <SelectBookContainer />
+          <CardContainer />
+          <CardDecoContainer />
         </InnerContainer>
       </Container>
 
