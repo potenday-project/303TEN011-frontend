@@ -1,3 +1,6 @@
+import { getCookie } from "cookies-next";
+import { GetServerSideProps } from "next";
+
 import Container from "@/components/common/Container";
 import InnerContainer from "@/components/common/InnerContainer";
 import Nav from "@/components/common/Nav";
@@ -39,3 +42,20 @@ const Main = () => {
 };
 
 export default Main;
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const token = getCookie("token", { req, res });
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
