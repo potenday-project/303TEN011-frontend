@@ -78,6 +78,16 @@ export const getArchive = async ({ pageParam = 1 }) => {
   return { data: data.content, nextPage: pageParam + 1, isLastPage: !data.pageableCustom.hasNext };
 };
 
+export const getDetail = async (archiveId: number) => {
+  const { data } = await api.get<GetCardData>(`/api/archives/${archiveId}`);
+
+  return data;
+};
+
+export const deleteDetail = async (archiveId: number) => {
+  await api.delete(`/api/archives/${archiveId}`);
+};
+
 export const postCard = async (cardData: CardData) => {
   const { data } = await api.post("/api/archives", cardData);
 

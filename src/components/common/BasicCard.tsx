@@ -11,7 +11,7 @@ const BasicCard = ({ backgroundColor, imageSize, fontColor, children }: Props) =
       style={
         backgroundColor.includes("template")
           ? {
-              backgroundImage: `url(template/${backgroundColor}_${imageSize}.svg)`,
+              backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_URL}/template/${backgroundColor}_${imageSize}.svg)`,
               backgroundSize: "cover",
             }
           : { backgroundColor }
