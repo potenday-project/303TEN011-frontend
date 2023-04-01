@@ -9,6 +9,7 @@ import RitualCard from "@/components/main/RitualCard";
 import WriteButton from "@/components/main/WriteButton";
 
 import { IconDrawer } from "@/static/icons";
+import RandomCard from "@/components/main/RandomCard";
 
 const Main = () => {
   return (
@@ -29,10 +30,12 @@ const Main = () => {
           <RitualCard />
         </header>
 
-        <InnerContainer className="h-mainInner mt-[50px] px-6 pt-7 pb-[60px]">
+        <InnerContainer className="h-main-inner-container mt-[50px] px-6 pt-7 pb-[60px]">
           <WriteButton />
 
           <PageTitle title="오늘의 한줄" className="mt-9" />
+
+          <RandomCard />
         </InnerContainer>
       </Container>
 

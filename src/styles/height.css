@@ -3,8 +3,8 @@
   min-height: calc(100vh - 50px);
 }
 
-.h-mainInner {
-  min-height: calc(100vh - 50px);
+.h-main-inner-container {
+  min-height: calc(100vh - 290px);
 }
 
 .h-search-container {

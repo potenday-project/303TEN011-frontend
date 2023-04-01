@@ -78,6 +78,12 @@ export const getArchive = async ({ pageParam = 1 }) => {
   return { data: data.content, nextPage: pageParam + 1, isLastPage: !data.pageableCustom.hasNext };
 };
 
+export const getRandomCard = async () => {
+  const { data } = await api.get<GetCardData>("/api/archives/random");
+
+  return data;
+};
+
 export const getDetail = async (archiveId: number) => {
   const { data } = await api.get<GetCardData>(`/api/archives/${archiveId}`);
 
