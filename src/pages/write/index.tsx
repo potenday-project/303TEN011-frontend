@@ -8,14 +8,21 @@ import CardDecoContainer from "@/components/write/CardDecoContainer";
 import BottomButton from "@/components/common/BottomButton";
 
 import usePostCard from "@/hooks/write/usePostCard";
-import { useWriteActions } from "@/store/useWriteStore";
+import useEditCard from "@/hooks/archive/useEditCard";
+import { useEditState, useWriteActions } from "@/store/useWriteStore";
 
 const Write = () => {
   const { clearData } = useWriteActions();
 
+  const { editMode } = useEditState();
+  const { mutate: editMutate } = useEditCard();
   const { mutate } = usePostCard();
   const handleClickWrite = () => {
-    mutate();
+    if (editMode) {
+      editMutate();
+    } else {
+      mutate();
+    }
   };
 
   return (

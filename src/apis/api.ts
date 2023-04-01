@@ -28,7 +28,7 @@ export interface CardData {
   fontColor: string;
 }
 
-interface GetCardData extends CardData {
+export interface GetCardData extends CardData {
   id: number;
   createdDt: string;
   modifiedDt: string;
@@ -80,6 +80,14 @@ export const getArchive = async ({ pageParam = 1 }) => {
 
 export const getDetail = async (archiveId: number) => {
   const { data } = await api.get<GetCardData>(`/api/archives/${archiveId}`);
+
+  return data;
+};
+
+export const editDetail = async (cardData: CardData, archiveId: number) => {
+  console.log(archiveId);
+
+  const { data } = await api.patch(`/api/archives/${archiveId}`, cardData);
 
   return data;
 };

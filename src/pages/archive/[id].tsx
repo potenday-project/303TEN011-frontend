@@ -12,13 +12,21 @@ import useDeleteDetail from "@/hooks/archive/useDeleteDetail";
 
 import useGetDetail from "@/hooks/archive/useGetDetail";
 import { IconQuote } from "@/static/icons";
+import { useWriteActions } from "@/store/useWriteStore";
+import { useRouter } from "next/router";
 
 const Detail = () => {
+  const { push } = useRouter();
+  const { editData } = useWriteActions();
+
   const { data } = useGetDetail();
   const { mutate } = useDeleteDetail();
 
   const handleClickEdit = () => {
-    console.log("edit");
+    if (data) {
+      editData(data);
+      push("/write");
+    }
   };
 
   const handleClickDelete = () => {
