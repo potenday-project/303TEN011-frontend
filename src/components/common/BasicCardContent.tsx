@@ -10,7 +10,7 @@ interface Props {
 const BasicCardContent = ({ className, fontColor, fontStyle, content }: Props) => {
   return (
     <p
-      className={`${className} ${fontColor} ${pretendard.variable} ${scdream.variable} ${bookk.variable} ${jsongmyung.variable} ${fontStyle} whitespace-pre text-center`}
+      className={`${className} ${fontColor} ${pretendard.variable} ${scdream.variable} ${bookk.variable} ${jsongmyung.variable} ${fontStyle} whitespace-pre-line text-center`}
     >
       {content}
     </p>

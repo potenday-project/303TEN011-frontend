@@ -13,14 +13,19 @@ const CardContainer = () => {
 
   return (
     <div className="relative px-6 pt-[10px]">
-      <BasicCard backgroundColor={backgroundColor} imageSize={imageSize} fontColor={fontColor}>
+      <BasicCard
+        className="gap-[3.5vw] p-[6vw]"
+        backgroundColor={backgroundColor}
+        imageSize={imageSize}
+        fontColor={fontColor}
+      >
         <IconQuote className="w-[7.5vw]" />
 
         <ReactTextareaAutosize
           placeholder="오늘의 한줄을 입력해주세요"
           value={content}
           onChange={(event) => postData("content", event.target.value)}
-          className={`w-full resize-none bg-transparent py-1 text-center text-[5vw] leading-[7vw] ${
+          className={`w-full resize-none overflow-y-hidden bg-transparent py-1 text-center text-[5vw] leading-[7.5vw] ${
             pretendard.variable
           } ${scdream.variable} ${bookk.variable} ${jsongmyung.variable} ${fontStyle} ${
             fontColor === "text-white" ? "placeholder:text-white" : "placeholder:text-black"
