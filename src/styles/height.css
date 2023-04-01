@@ -7,18 +7,18 @@
   min-height: calc(100vh - 50px);
 }
 
+.h-search-container {
+  height: calc(100vh - 125px);
+}
+
+.h-search-result-container {
+  height: calc(100% - 24px);
+}
+
 .h-archiveInner {
   min-height: calc(100vh - 90px);
 }
 
 .h-archiveContainer {
   height: calc(100vh - 185px);
-}
-
-.h-searchContainer {
-  height: calc(100vh - 125px);
-}
-
-.h-searchInnerContainer {
-  height: calc(100% - 24px);
 }

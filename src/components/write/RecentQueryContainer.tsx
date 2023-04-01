@@ -29,10 +29,13 @@ const RecentQueryContainer = ({ onClick }: Props) => {
             onClick={() => onClick(query)}
             key={query}
             value={query}
-            className="flex h-fit w-fit cursor-pointer items-center justify-center gap-[14px] rounded-full border border-black px-5 py-2"
+            className="flex h-fit w-fit cursor-pointer items-center justify-center gap-2 rounded-full border border-black px-4 py-2"
           >
             <span className="text-sm font-semibold">{query}</span>
-            <button onClick={(event) => handleClickDelete(event, query)}>
+            <button
+              onClick={(event) => handleClickDelete(event, query)}
+              className="flex w-5 items-center justify-center"
+            >
               <IconCancel className="w-[14px]" />
             </button>
           </RadioGroup.Option>

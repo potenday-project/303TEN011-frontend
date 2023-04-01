@@ -21,18 +21,19 @@ const SearchInput = ({ query, onSubmit, placeholder }: Props) => {
 
   return (
     <div className="relative w-full">
-      <form onSubmit={(event) => onSubmit(event, input)}>
+      <form
+        onSubmit={(event) => onSubmit(event, input)}
+        className="flex h-[50px] w-full items-center justify-between gap-1 rounded-[10px] bg-white p-4 text-sm font-semibold placeholder:text-[#d9d9d9] focus:border focus:border-black focus:p-[15px] focus:pr-[47px] focus:outline-none"
+      >
         <input
           placeholder={placeholder}
           value={input}
           onChange={handleChangeInput}
-          className="h-[50px] w-full rounded-[10px] p-4 pr-12 text-sm font-semibold placeholder:text-[#d9d9d9] focus:border focus:border-black focus:p-[15px] focus:pr-[47px] focus:outline-none"
+          className="h-full w-full bg-transparent"
         />
 
-        <button type="submit">
-          <IconSearch
-            className={`absolute top-[13px] right-4 ${input ? "text-[#111]" : "text-[#d9d9d9]"} `}
-          />
+        <button type="submit" className={`${input ? "text-[#111]" : "text-[#d9d9d9]"}`}>
+          <IconSearch />
         </button>
       </form>
     </div>

@@ -72,7 +72,7 @@ const SearchBookModal = () => {
 
         <Dialog.Description
           as="div"
-          className={`h-searchContainer px-6 ${selectedBook && "pb-[60px]"}`}
+          className={`h-search-container px-6 ${selectedBook && "pb-[60px]"}`}
         >
           {query ? (
             <SearchBookContainer
