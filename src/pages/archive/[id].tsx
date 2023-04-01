@@ -84,7 +84,7 @@ const Detail = () => {
           <div className="flex flex-col gap-2">
             <button
               onClick={handleClickDownload}
-              className="flex h-6 items-center justify-start gap-2 font-bold"
+              className="flex h-6 w-fit items-center justify-start gap-2 font-bold"
             >
               <IconDownload />
               <span>이미지 다운로드</span>

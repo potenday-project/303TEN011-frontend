@@ -26,3 +26,7 @@
 .h-archive-result-container {
   height: calc(100vh - 185px);
 }
+
+.h-mypage-modal {
+  height: calc(100vh - 60px);
+}

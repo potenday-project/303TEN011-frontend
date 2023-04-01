@@ -10,10 +10,23 @@ import WriteButton from "@/components/main/WriteButton";
 
 import { IconDrawer } from "@/static/icons";
 import RandomCard from "@/components/main/RandomCard";
+import { useModalActions } from "@/store/useModalStore";
+import MypageModal from "@/components/main/MypageModal";
 
-const Main = () => {
+interface Props {
+  nickname: string;
+}
+
+const Main = ({ nickname }: Props) => {
+  const { changeModalState } = useModalActions();
+  const handleclickMypage = () => {
+    changeModalState("mypage");
+  };
+
   return (
     <>
+      <MypageModal nickname={nickname} />
+
       <Container bgColor="bg-main-900" className="pt-[240px]">
         <header className="fixed top-0 flex h-[290px] w-full min-w-[320px] flex-col gap-[25px] bg-main-900 px-6">
           <div className="flex h-[50px] w-full items-center justify-between">
@@ -24,7 +37,9 @@ const Main = () => {
               lineColor="bg-[#616161]"
             />
 
-            <IconDrawer />
+            <button onClick={handleclickMypage}>
+              <IconDrawer />
+            </button>
           </div>
 
           <RitualCard />
@@ -48,6 +63,7 @@ export default Main;
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const token = getCookie("token", { req, res });
+  const nickname = getCookie("nickname", { req, res });
 
   if (!token) {
     return {
@@ -59,6 +75,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   }
 
   return {
-    props: {},
+    props: { nickname },
   };
 };
