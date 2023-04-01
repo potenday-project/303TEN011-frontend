@@ -98,6 +98,18 @@ export const IconCardSize = () => {
 };
 
 // 기타 아이콘
+
+export const IconDownload = () => {
+  return (
+    <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2.21139 14.4286C1.75723 14.4286 1.37038 14.2627 1.05084 13.931C0.731303 13.5993 0.571533 13.1977 0.571533 12.7263V9.36835H2.21139V12.7299H11.7888V9.36835H13.4287V12.7215C13.4287 13.192 13.2659 13.5941 12.9402 13.9279C12.6146 14.2617 12.2308 14.4286 11.7888 14.4286H2.21139ZM7.00883 10.4591L3.01387 6.38227L4.20014 5.18427L6.1889 7.24055V0.857147H7.82875V7.24055L9.81751 5.18427L11.0038 6.38227L7.00883 10.4591Z"
+        fill="#111111"
+      />
+    </svg>
+  );
+};
+
 export const IconSearch = () => {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -178,8 +190,7 @@ export const IconQuote = ({ className }: Argument) => {
   return (
     <svg
       className={className}
-      width="25"
-      height="19"
+      width="100%"
       viewBox="0 0 25 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

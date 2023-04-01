@@ -1,3 +1,5 @@
+import { ForwardedRef, forwardRef } from "react";
+
 interface Props {
   backgroundColor: string;
   imageSize: string;
@@ -5,9 +7,13 @@ interface Props {
   children: React.ReactNode;
 }
 
-const BasicCard = ({ backgroundColor, imageSize, fontColor, children }: Props) => {
+const BasicCard = (
+  { backgroundColor, imageSize, fontColor, children }: Props,
+  ref: ForwardedRef<HTMLDivElement>,
+) => {
   return (
     <div
+      ref={ref}
       style={
         backgroundColor.includes("template")
           ? {
@@ -23,4 +29,4 @@ const BasicCard = ({ backgroundColor, imageSize, fontColor, children }: Props) =
   );
 };
 
-export default BasicCard;
+export default forwardRef(BasicCard);

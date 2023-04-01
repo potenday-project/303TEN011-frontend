@@ -10,6 +10,8 @@ import BottomButton from "@/components/common/BottomButton";
 import usePostCard from "@/hooks/write/usePostCard";
 import useEditCard from "@/hooks/archive/useEditCard";
 import { useEditState, useWriteActions } from "@/store/useWriteStore";
+import { GetServerSideProps } from "next";
+import { getCookie } from "cookies-next";
 
 const Write = () => {
   const { clearData } = useWriteActions();
@@ -44,3 +46,20 @@ const Write = () => {
 };
 
 export default Write;
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const token = getCookie("token", { req, res });
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
