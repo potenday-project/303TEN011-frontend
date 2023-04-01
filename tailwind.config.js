@@ -29,6 +29,9 @@ module.exports = {
         button3: ["14px", "30px"],
         label: ["12px", "12px"],
       },
+      aspectRatio: {
+        long: "9 / 16",
+      },
     },
   },
   plugins: [require("@headlessui/tailwindcss")],
