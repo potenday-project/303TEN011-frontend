@@ -16,7 +16,7 @@ const BasicCard = ({ backgroundColor, imageSize, fontColor, children }: Props) =
             }
           : { backgroundColor }
       }
-      className={`flex ${imageSize} relative w-full flex-col items-center justify-center gap-[14px] rounded-[10px] p-6 ${fontColor}`}
+      className={`flex ${imageSize} relative w-full flex-col items-center justify-center gap-[3vw] rounded-[10px] p-[3vw] ${fontColor}`}
     >
       {children}
     </div>

@@ -15,10 +15,10 @@
   height: calc(100% - 24px);
 }
 
-.h-archiveInner {
+.h-archive-inner-container {
   min-height: calc(100vh - 90px);
 }
 
-.h-archiveContainer {
+.h-archive-result-container {
   height: calc(100vh - 185px);
 }

@@ -1,18 +1,20 @@
-import SearchArchiveModal from "@/components/archive/SearchArchiveModal";
-import ArchiveCard from "@/components/common/ArchiveCard";
-import Container from "@/components/common/Container";
-import InnerContainer from "@/components/common/InnerContainer";
-import Nav from "@/components/common/Nav";
-import PageTitle from "@/components/common/PageTitle";
-import useGetArchive from "@/hooks/archive/useGetArchive";
-import { IconSearch } from "@/static/icons";
-import { useModalActions } from "@/store/useModalStore";
 import Link from "next/link";
+
+import SearchArchiveModal from "@/components/archive/SearchArchiveModal";
+import Container from "@/components/common/Container";
+import PageTitle from "@/components/common/PageTitle";
+import InnerContainer from "@/components/common/InnerContainer";
+import BasicCard from "@/components/common/BasicCard";
+import Nav from "@/components/common/Nav";
+
+import useGetArchive from "@/hooks/archive/useGetArchive";
+import { IconQuote, IconSearch } from "@/static/icons";
+import { useModalActions } from "@/store/useModalStore";
+import BasicCardContent from "@/components/common/BasicCardContent";
+import BasicCardBookInfo from "@/components/common/BasicCardBookInfo";
 
 const Archive = () => {
   const { data } = useGetArchive();
-
-  console.log(data);
 
   const { changeModalState } = useModalActions();
   const handleClickModalButton = () => {
@@ -31,16 +33,32 @@ const Archive = () => {
             lineColor="bg-[#616161]"
           />
 
-          <button onClick={handleClickModalButton}>
-            <IconSearch className="text-white" />
+          <button onClick={handleClickModalButton} className="text-white">
+            <IconSearch />
           </button>
         </header>
 
-        <InnerContainer className="h-archiveInner px-6 pt-[35px] pb-[60px]">
-          <div className="h-archiveContainer grid grid-cols-2 content-start gap-3 overflow-y-auto">
+        <InnerContainer className="h-archive-inner-container px-6 pt-[35px] pb-[60px]">
+          <div className="h-archive-result-container grid grid-cols-2 content-start gap-3 overflow-y-auto">
             {data?.map((item, idx) => (
-              <Link href={`/archive/${item}`} key={idx}>
-                <ArchiveCard item={item} />
+              <Link href={`/archive/1`} key={idx}>
+                <BasicCard
+                  backgroundColor={item.backgroundColor}
+                  imageSize={item.imageSize}
+                  fontColor={item.fontColor}
+                >
+                  <IconQuote className="w-[3.2vw]" />
+                  <BasicCardContent
+                    fontColor={item.fontColor}
+                    fontStyle={item.fontStyle}
+                    content={item.content}
+                  />
+                  <BasicCardBookInfo
+                    fontColor={item.fontColor}
+                    bookTitle={item.title}
+                    bookAuthors={item.author}
+                  />
+                </BasicCard>
               </Link>
             ))}
           </div>
