@@ -41,8 +41,8 @@ const Detail = () => {
     const card = cardRef.current;
     if (card && data) {
       toPng(card, {
-        canvasWidth: 540,
-        canvasHeight: data.imageSize === "aspect-square" ? 540 : 960,
+        canvasWidth: 1080,
+        canvasHeight: data.imageSize === "aspect-square" ? 1080 : 1920,
       }).then((image) => {
         saveAs(image, "card.png");
       });
