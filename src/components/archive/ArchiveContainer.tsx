@@ -24,17 +24,22 @@ const ArchiveContainer = () => {
       {contents.map((item) => (
         <Link href={`/archive/${item.id}`} key={item.id}>
           <BasicCard
+            className="gap-[2vw] p-[3.2vw]"
             backgroundColor={item.backgroundColor}
             imageSize={item.imageSize}
             fontColor={item.fontColor}
           >
-            <IconQuote className="w-[3.2vw]" />
+            <IconQuote className="w-[3vw]" />
             <BasicCardContent
+              className="text-[2vw] leading-[3vw]"
               fontColor={item.fontColor}
               fontStyle={item.fontStyle}
               content={item.content}
             />
             <BasicCardBookInfo
+              className="bottom-[3vw] left-[3vw] w-[35vw]"
+              titleClassName="text-[1.8vw] leading-[3vw]"
+              authorClassName="text-[1.5vw] leading-[2.5vw]"
               fontColor={item.fontColor}
               bookTitle={item.title}
               bookAuthors={item.author}

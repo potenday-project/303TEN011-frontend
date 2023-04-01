@@ -71,7 +71,7 @@ const Detail = () => {
                 content={data.content}
               />
               <BasicCardBookInfo
-                className="bottom-[6vw] left-[6vw]"
+                className="bottom-[6vw] left-[6vw] w-[75vw]"
                 titleClassName="text-[3.75vw] leading-[3.75vw]"
                 authorClassName="text-[3vw] leading-[3vw]"
                 fontColor={data.fontColor}

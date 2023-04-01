@@ -16,7 +16,7 @@ const BasicCardBookInfo = ({
   bookTitle,
 }: Props) => {
   return (
-    <div className={`${className} absolute w-[70%]`}>
+    <div className={`${className} absolute`}>
       <span className={`${titleClassName} block truncate break-keep ${fontColor} text-opacity-80`}>
         {bookTitle}
       </span>
