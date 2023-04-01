@@ -1,4 +1,6 @@
+import { GetServerSideProps } from "next";
 import Image from "next/image";
+import { getCookie } from "cookies-next";
 
 import Container from "@/components/common/Container";
 import PageTitle from "@/components/common/PageTitle";
@@ -18,15 +20,18 @@ const Login = () => {
               <PageTitle title="오늘의 한줄" fontSize="text-headline1" />
               <span>을</span>
             </div>
-            <span>기록으로 남기는</span>
+            <span>기록으로 남기는 서비스</span>
           </div>
         </div>
 
         <div className="relative z-[2] flex flex-col items-center">
           <Image priority src={LoginImage} alt="로그인" width={269} height={199} />
-          <span className="mt-10 mb-5 text-body2 text-white">
-            문장을 기록해서 <span className="font-semibold">리츄얼을 형성</span>해보세요.
-          </span>
+          <div className="mt-10 mb-5 flex flex-col items-center gap-1 text-body2 text-white">
+            <span>하루에 읽은 책 중 마음에 드는 문장을 기록해서</span>
+            <span>
+              <span className="font-semibold">리츄얼을 형성</span>해보세요.
+            </span>
+          </div>
           <KakaoButton />
         </div>
       </Container>
@@ -43,3 +48,20 @@ const Login = () => {
 };
 
 export default Login;
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const token = getCookie("token", { req, res });
+
+  if (token) {
+    return {
+      redirect: {
+        destination: "/main",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
