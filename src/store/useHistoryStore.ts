@@ -35,12 +35,12 @@ export default create<HistoryState>()(
         const history = get().history;
         const existIndex = history.findIndex((item) => item === query);
 
-        if (history.length > 9) {
-          history.shift();
-        }
-
         if (existIndex !== -1) {
           history.splice(existIndex, 1);
+        }
+
+        if (history.length > 9) {
+          history.shift();
         }
 
         set({ history: [...history, query] });
