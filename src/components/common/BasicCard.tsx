@@ -1,6 +1,7 @@
 import { ForwardedRef, forwardRef } from "react";
 
 interface Props {
+  className?: string;
   backgroundColor: string;
   imageSize: string;
   fontColor: string;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const BasicCard = (
-  { backgroundColor, imageSize, fontColor, children }: Props,
+  { className, backgroundColor, imageSize, fontColor, children }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) => {
   return (
@@ -22,7 +23,7 @@ const BasicCard = (
             }
           : { backgroundColor }
       }
-      className={`flex ${imageSize} relative w-full flex-col items-center justify-center gap-[3vw] rounded-[10px] p-[3vw] ${fontColor}`}
+      className={`flex ${className} ${imageSize} relative w-full flex-col items-center justify-center rounded-[10px] ${fontColor}`}
     >
       {children}
     </div>

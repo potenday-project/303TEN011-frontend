@@ -1,16 +1,26 @@
 interface Props {
+  className?: string;
+  titleClassName?: string;
+  authorClassName?: string;
   fontColor: string;
   bookTitle: string;
   bookAuthors: string;
 }
 
-const BasicCardBookInfo = ({ fontColor, bookAuthors, bookTitle }: Props) => {
+const BasicCardBookInfo = ({
+  className,
+  titleClassName,
+  authorClassName,
+  fontColor,
+  bookAuthors,
+  bookTitle,
+}: Props) => {
   return (
-    <div className={`absolute bottom-[3vw] left-[3vw] w-[70%]`}>
-      <span className={`block break-keep text-[2vw] leading-[3vw] ${fontColor} text-opacity-80`}>
+    <div className={`${className} absolute w-[70%]`}>
+      <span className={`${titleClassName} block truncate break-keep ${fontColor} text-opacity-80`}>
         {bookTitle}
       </span>
-      <span className={`mt-[1.5vw] block text-[1.5vw] leading-[3vw] ${fontColor} text-opacity-60`}>
+      <span className={`${authorClassName} mt-[1vw] block truncate ${fontColor} text-opacity-60`}>
         {bookAuthors}
       </span>
     </div>

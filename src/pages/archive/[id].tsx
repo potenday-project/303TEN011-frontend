@@ -57,18 +57,23 @@ const Detail = () => {
         <div className="h-detail-inner-container flex flex-col items-stretch justify-between gap-3 px-6 pb-6">
           {data && (
             <BasicCard
+              className="gap-[3.5vw] p-[6vw]"
               backgroundColor={data.backgroundColor}
               imageSize={data.imageSize}
               fontColor={data.fontColor}
               ref={cardRef}
             >
-              <IconQuote className="w-[3.2vw]" />
+              <IconQuote className="w-[7.5vw]" />
               <BasicCardContent
+                className="text-[5vw] leading-[7.5vw]"
                 fontColor={data.fontColor}
                 fontStyle={data.fontStyle}
                 content={data.content}
               />
               <BasicCardBookInfo
+                className="bottom-[6vw] left-[6vw]"
+                titleClassName="text-[3.75vw] leading-[3.75vw]"
+                authorClassName="text-[3vw] leading-[3vw]"
                 fontColor={data.fontColor}
                 bookTitle={data.title}
                 bookAuthors={data.author}
