@@ -34,11 +34,23 @@ interface LoginData {
   token: string;
 }
 
+interface RitualData {
+  totalBookCount: number;
+  totalArchiveCount: number;
+  continuityPostDat: number;
+}
+
 export const kakaoLogin = async (code: string) => {
   const { data } = await api.get<LoginData>("/oauth/kakao/redirect", { params: { code } });
 
   setCookie("token", data.token);
   setCookie("nickname", data.nickname);
+};
+
+export const getRitual = async () => {
+  const { data } = await api.get<RitualData>("/api/user/my-ritual");
+
+  return data;
 };
 
 export const getArchive = async () => {

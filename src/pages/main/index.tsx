@@ -15,10 +15,9 @@ const Main = () => {
           <div className="flex h-[50px] w-full items-center justify-between">
             <PageTitle
               title="하루 한줄"
-              fontSize="text-lg"
+              fontSize="text-headline3"
               fontColor="text-white"
               lineColor="bg-[#616161]"
-              lineWeight="h-[10px]"
             />
 
             <IconDrawer />

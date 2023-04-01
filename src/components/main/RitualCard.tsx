@@ -1,3 +1,4 @@
+import useRitual from "@/hooks/main/useGetRitual";
 import { bebas } from "@/util/fonts";
 import PageTitle from "../common/PageTitle";
 
@@ -48,7 +49,7 @@ const InspirationCard = ({ bookCount, inspirationCount }: InspirationCardProps) 
         <div className="flex items-end">
           <PageTitle
             title="영감"
-            fontSize="text-lg"
+            fontSize="text-headline3"
             fontColor="text-white"
             lineColor="bg-[#0C0B0B]"
           />
@@ -60,11 +61,16 @@ const InspirationCard = ({ bookCount, inspirationCount }: InspirationCardProps) 
 };
 
 const RitualCard = () => {
+  const { data } = useRitual();
+
   return (
     <div className="grid grid-cols-2 gap-3">
-      <Card count={12} text="기록한 문장" />
-      <Card count={7} text="우리가 연속해서 만난 날" />
-      <InspirationCard bookCount={3} inspirationCount={12} />
+      <Card count={data?.totalArchiveCount || 0} text="기록한 문장" />
+      <Card count={data?.continuityPostDat || 0} text="우리가 연속해서 만난 날" />
+      <InspirationCard
+        bookCount={data?.totalBookCount || 0}
+        inspirationCount={data?.totalArchiveCount || 0}
+      />
     </div>
   );
 };
