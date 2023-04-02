@@ -66,7 +66,7 @@ const RitualCard = () => {
   return (
     <div className="grid grid-cols-2 gap-3">
       <Card count={data?.totalArchiveCount || 0} text="기록한 문장" />
-      <Card count={data?.continuityPostDat || 0} text="우리가 연속해서 만난 날" />
+      <Card count={data?.continuityPostDay || 0} text="우리가 연속해서 만난 날" />
       <InspirationCard
         bookCount={data?.totalBookCount || 0}
         inspirationCount={data?.totalArchiveCount || 0}

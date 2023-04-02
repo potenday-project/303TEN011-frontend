@@ -53,7 +53,7 @@ interface LoginData {
 interface RitualData {
   totalBookCount: number;
   totalArchiveCount: number;
-  continuityPostDat: number;
+  continuityPostDay: number;
 }
 
 export const kakaoLogin = async (code: string) => {
