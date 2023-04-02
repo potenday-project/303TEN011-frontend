@@ -30,10 +30,13 @@ const CardContainer = () => {
           } ${scdream.variable} ${bookk.variable} ${jsongmyung.variable} ${fontStyle} ${
             fontColor === "text-white" ? "placeholder:text-white" : "placeholder:text-black"
           }`}
-          maxLength={96}
+          maxLength={90}
           maxRows={6}
         />
 
+        <div className="absolute bottom-4 left-4 text-caption1">{`${
+          content.length || 0
+        } / 90 byte`}</div>
         <FontColorPicker />
       </BasicCard>
     </div>
