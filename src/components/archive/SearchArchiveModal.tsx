@@ -1,10 +1,12 @@
+import { FormEvent, useState } from "react";
 import { Dialog } from "@headlessui/react";
+
 import PageTitle from "../common/PageTitle";
 import SearchInput from "../common/SearchInput";
 
 import { IconCancel } from "@/static/icons";
 import { useModalActions, useSearchArchiveModalState } from "@/store/useModalStore";
-import { FormEvent } from "react";
+import SearchResultContainer from "./SearchResultContainer";
 
 const SearchArchiveModal = () => {
   const { changeModalState } = useModalActions();
@@ -13,9 +15,10 @@ const SearchArchiveModal = () => {
     changeModalState("searchArchive");
   };
 
-  const handleSetQuery = (event: FormEvent<HTMLFormElement>) => {
+  const [query, setQuery] = useState("");
+  const handleSetQuery = (event: FormEvent<HTMLFormElement>, input: string) => {
     event.preventDefault();
-    console.log("handle");
+    setQuery(input);
   };
 
   return (
@@ -27,10 +30,16 @@ const SearchArchiveModal = () => {
             <IconCancel onClick={handleClose} />
           </div>
 
-          <SearchInput onSubmit={handleSetQuery} placeholder="책 이름, 작가로 검색하기" />
+          <SearchInput
+            query={query}
+            onSubmit={handleSetQuery}
+            placeholder="책 이름, 작가로 검색하기"
+          />
         </Dialog.Title>
 
-        <Dialog.Description as="div" className={`h-searchContainer px-6`}></Dialog.Description>
+        <Dialog.Description as="div" className={`h-search-container px-6`}>
+          <SearchResultContainer query={query} />
+        </Dialog.Description>
       </Dialog.Panel>
     </Dialog>
   );

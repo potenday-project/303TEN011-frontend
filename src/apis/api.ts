@@ -75,7 +75,22 @@ export const getArchive = async ({ pageParam = 1 }) => {
     { params: { page: pageParam } },
   );
 
-  return { data: data.content, nextPage: pageParam + 1, isLastPage: !data.pageableCustom.hasNext };
+  return { data: data.content, nextPage: pageParam + 1, isLastPage: data.pageableCustom.last };
+};
+
+export const getArchiveBySearch = async ({
+  searchQuery,
+  pageParam,
+}: {
+  searchQuery: string;
+  pageParam: number;
+}) => {
+  const { data } = await api.get<{ content: GetCardData[]; pageableCustom: Pageable }>(
+    "/api/archives",
+    { params: { page: pageParam, title: searchQuery } },
+  );
+
+  return { data: data.content, nextPage: pageParam + 1, isLastPage: data.pageableCustom.last };
 };
 
 export const getRandomCard = async () => {
