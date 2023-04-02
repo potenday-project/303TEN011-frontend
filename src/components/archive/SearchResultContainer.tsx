@@ -25,7 +25,7 @@ const SearchResultContainer = ({ query }: Props) => {
 
   return (
     <>
-      {!isFetching && contents.length === 0 ? (
+      {!isFetching && query && contents.length === 0 ? (
         <div className="mt-[30px] flex w-full justify-center text-[#6a6a6a]">
           검색 결과가 없습니다🥲
         </div>

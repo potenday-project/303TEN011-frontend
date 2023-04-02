@@ -106,8 +106,6 @@ export const getDetail = async (archiveId: number) => {
 };
 
 export const editDetail = async (cardData: CardData, archiveId: number) => {
-  console.log(archiveId);
-
   const { data } = await api.patch(`/api/archives/${archiveId}`, cardData);
 
   return data;

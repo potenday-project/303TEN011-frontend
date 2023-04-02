@@ -1,3 +1,7 @@
+import { GetServerSideProps } from "next";
+import { getCookie } from "cookies-next";
+import { useRouter } from "next/router";
+
 import SearchBookModal from "@/components/write/SearchBookModal";
 import Container from "@/components/common/Container";
 import InnerContainer from "@/components/common/InnerContainer";
@@ -10,10 +14,9 @@ import BottomButton from "@/components/common/BottomButton";
 import usePostCard from "@/hooks/write/usePostCard";
 import useEditCard from "@/hooks/archive/useEditCard";
 import { useEditState, useWriteActions } from "@/store/useWriteStore";
-import { GetServerSideProps } from "next";
-import { getCookie } from "cookies-next";
 
 const Write = () => {
+  const { back } = useRouter();
   const { clearData } = useWriteActions();
 
   const { editMode } = useEditState();
@@ -27,13 +30,18 @@ const Write = () => {
     }
   };
 
+  const handleClickClose = () => {
+    clearData();
+    back();
+  };
+
   return (
     <>
       <SearchBookModal />
 
       <Container bgColor="bg-main-900" className="flex items-end">
         <InnerContainer className="h-inner-container pb-[60px]">
-          <InnerContainerHeader title="오늘의 한줄" func={clearData} />
+          <InnerContainerHeader title="오늘의 한줄" func={handleClickClose} />
           <SelectBookContainer />
           <CardContainer />
           <CardDecoContainer />

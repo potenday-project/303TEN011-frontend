@@ -21,6 +21,9 @@ import { useWriteActions } from "@/store/useWriteStore";
 
 const Detail = () => {
   const { push } = useRouter();
+  const handleClickClose = () => {
+    push("/archive");
+  };
 
   const { data } = useGetDetail();
   const { editData } = useWriteActions();
@@ -52,7 +55,7 @@ const Detail = () => {
   return (
     <Container bgColor="bg-main-900" className="flex items-end">
       <InnerContainer className="h-inner-container">
-        <InnerContainerHeader title="나의 한줄" />
+        <InnerContainerHeader title="나의 한줄" func={handleClickClose} />
 
         <div className="h-detail-inner-container flex flex-col items-stretch justify-between gap-3 px-6 pb-6">
           {data && (

@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-
 import PageTitle from "./PageTitle";
 import TextButton from "./TextButton";
 
@@ -9,11 +7,8 @@ interface Props {
 }
 
 const InnerContainerHeader = ({ title, func }: Props) => {
-  const { back } = useRouter();
-
   const handleClickClose = () => {
     if (func) func();
-    back();
   };
 
   return (
