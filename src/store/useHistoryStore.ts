@@ -40,10 +40,10 @@ export default create<HistoryState>()(
         }
 
         if (history.length > 9) {
-          history.shift();
+          history.pop();
         }
 
-        set({ history: [...history, query] });
+        set({ history: [query, ...history] });
       },
       deleteHistory: (query) => {
         set({ history: get().history.filter((item) => item !== query) });
