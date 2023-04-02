@@ -6,17 +6,17 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { pretendard } from "@/util/fonts";
 
-if (typeof window === "undefined") {
-  (async () => {
-    const { server } = await import("@/mocks/server");
-    server.listen();
-  })();
-} else {
-  (async () => {
-    const { worker } = await import("@/mocks/browser");
-    worker.start();
-  })();
-}
+// if (typeof window === "undefined") {
+//   (async () => {
+//     const { server } = await import("@/mocks/server");
+//     server.listen();
+//   })();
+// } else {
+//   (async () => {
+//     const { worker } = await import("@/mocks/browser");
+//     worker.start();
+//   })();
+// }
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
