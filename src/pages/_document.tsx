@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="ko">
       <Head>
         <title>하루 한 줄, 오늘의 한줄을 남겨보세요.</title>
-        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width ,user-scalable=no" />
         <meta property="og:title" content="하루 한 줄" />
         <meta property="og:type" content="website" />
