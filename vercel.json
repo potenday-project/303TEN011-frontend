@@ -9,7 +9,6 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
       "dest": "http://one-line-a-day-kappa.vercel.app/$1",
       "headers": {
         "host": "one-line-a-day-kappa.vercel.app"
