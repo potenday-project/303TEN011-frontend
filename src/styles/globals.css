@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+body {
+  overflow-y: overlay;
+}
+
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }

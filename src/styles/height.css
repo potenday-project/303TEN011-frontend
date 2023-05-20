@@ -1,14 +1,14 @@
 .h-inner-container {
   margin-top: 50px;
-  min-height: calc(100vh - 50px);
+  min-height: calc(100dvh - 50px);
 }
 
 .h-main-inner-container {
-  min-height: calc(100vh - 290px);
+  min-height: calc(100dvh - 290px);
 }
 
 .h-search-container {
-  height: calc(100vh - 125px);
+  height: calc(100dvh - 125px);
 }
 
 .h-search-result-container {
@@ -28,5 +28,5 @@
 }
 
 .h-mypage-modal {
-  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
 }
