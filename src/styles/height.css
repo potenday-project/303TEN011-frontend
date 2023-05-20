@@ -16,15 +16,15 @@
 }
 
 .h-archive-inner-container {
-  min-height: calc(100vh - 90px);
-}
-
-.h-detail-inner-container {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100dvh - 130px);
 }
 
 .h-archive-result-container {
-  height: calc(100vh - 185px);
+  height: calc(100dvh - 225px);
+}
+
+.h-detail-inner-container {
+  min-height: calc(100dvh - 120px);
 }
 
 .h-mypage-modal {

@@ -14,7 +14,7 @@ const CardContainer = () => {
   return (
     <div className="relative px-6 pt-[10px]">
       <BasicCard
-        className="gap-[3.5vw] p-[6vw]"
+        className="gap-[3.5vw] p-[6vw] sm:gap-[14px] sm:p-5"
         backgroundColor={backgroundColor}
         imageSize={imageSize}
         fontColor={fontColor}

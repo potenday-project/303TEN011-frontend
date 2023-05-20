@@ -23,11 +23,11 @@ const SearchArchiveModal = () => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <Dialog.Panel className="fixed inset-0 z-30 bg-main-100">
+      <Dialog.Panel className="fixed top-0 z-30 h-[100dvh] w-full bg-main-100 sm:left-1/2 sm:max-w-[375px] sm:-translate-x-1/2">
         <Dialog.Title className="flex h-[125px] flex-col items-center justify-center gap-[20px] px-6">
           <div className="flex w-full items-center justify-between">
             <PageTitle title="아카이브 검색하기" />
-            <IconCancel onClick={handleClose} />
+            <IconCancel onClick={handleClose} className="cursor-pointer" />
           </div>
 
           <SearchInput
@@ -37,7 +37,7 @@ const SearchArchiveModal = () => {
           />
         </Dialog.Title>
 
-        <Dialog.Description as="div" className={`h-search-container px-6`}>
+        <Dialog.Description as="div" className={`h-search-container px-6 pb-6`}>
           <SearchResultContainer query={query} />
         </Dialog.Description>
       </Dialog.Panel>
