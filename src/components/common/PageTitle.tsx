@@ -15,10 +15,10 @@ const PageTitle = ({
 }: Props) => {
   return (
     <div className={`${className} relative w-fit`}>
-      <h1 className={`relative z-10 block break-keep px-1 font-extrabold ${fontSize} ${fontColor}`}>
+      <h1 className={`${fontSize} ${fontColor} relative z-10 block break-keep px-1 font-extrabold`}>
         {title}
       </h1>
-      <div className={`absolute left-0 bottom-0 h-3 w-full ${lineColor}`} />
+      <div className={`${lineColor} absolute left-0 bottom-0 h-3 w-full`} />
     </div>
   );
 };

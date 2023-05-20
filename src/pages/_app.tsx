@@ -34,10 +34,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:url" content="https://one-line-a-day-kappa.vercel.app/" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <main className={`${pretendard.variable} font-pretendard`}>
+        <main
+          className={`${pretendard.variable} cursor-default font-pretendard sm:flex sm:justify-center`}
+        >
           <Component {...pageProps} />
         </main>
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );
