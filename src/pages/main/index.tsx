@@ -5,13 +5,14 @@ import Container from "@/components/common/Container";
 import InnerContainer from "@/components/common/InnerContainer";
 import Nav from "@/components/common/Nav";
 import PageTitle from "@/components/common/PageTitle";
+
 import RitualCard from "@/components/main/RitualCard";
 import WriteButton from "@/components/main/WriteButton";
+import RandomCard from "@/components/main/RandomCard";
+import MypageModal from "@/components/main/MypageModal";
 
 import { IconDrawer } from "@/static/icons";
-import RandomCard from "@/components/main/RandomCard";
 import { useModalActions } from "@/store/useModalStore";
-import MypageModal from "@/components/main/MypageModal";
 
 interface Props {
   nickname: string;
@@ -28,7 +29,7 @@ const Main = ({ nickname }: Props) => {
       <MypageModal nickname={nickname} />
 
       <Container bgColor="bg-main-900" className="pt-[240px]">
-        <header className="fixed top-0 flex h-[290px] w-full min-w-[320px] flex-col gap-[25px] bg-main-900 px-6">
+        <header className="fixed top-0 flex h-[290px] w-full min-w-[320px] flex-col gap-[25px] bg-main-900 px-6 sm:max-w-[375px]">
           <div className="flex h-[50px] w-full items-center justify-between">
             <PageTitle
               title="하루 한줄"

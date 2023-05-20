@@ -26,7 +26,7 @@ const Archive = ({ nickname }: Props) => {
       <SearchArchiveModal />
 
       <Container bgColor="bg-main-900" className="flex items-end">
-        <header className="fixed top-0 flex h-[90px] w-full items-center justify-between bg-main-900 px-6">
+        <header className="fixed top-0 flex h-[130px] w-full items-center justify-between bg-main-900 px-6 sm:max-w-[375px]">
           <PageTitle
             title={`${nickname}님의 매일의 기록`}
             fontColor="text-white"
