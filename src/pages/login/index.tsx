@@ -40,7 +40,7 @@ const Login = () => {
       </Container>
 
       <Image
-        className="fixed bottom-0 w-full min-w-[320px] sm:max-w-[375px]"
+        className="fixed bottom-0 w-full min-w-[320px] sm:max-w-[320px]"
         priority
         src={LoginBackgroundImage}
         alt="로그인 배경"

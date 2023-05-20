@@ -12,7 +12,7 @@ const Container = ({
 }: React.PropsWithChildren<Props>) => {
   return (
     <main
-      className={`${className} relative min-h-[100dvh] w-full min-w-[320px] sm:w-[375px] ${bgColor}`}
+      className={`${className} relative min-h-[100dvh] w-full min-w-[320px] sm:w-[320px] ${bgColor}`}
     >
       {children}
     </main>
