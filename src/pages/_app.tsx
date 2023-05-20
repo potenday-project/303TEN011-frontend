@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <main
-          className={`${pretendard.variable} cursor-default font-pretendard sm:flex sm:justify-center`}
+          className={`${pretendard.variable} relative cursor-default font-pretendard sm:flex sm:justify-center`}
         >
           <Component {...pageProps} />
         </main>

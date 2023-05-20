@@ -26,6 +26,7 @@ const SelectedBook = () => {
             />
           )}
         </div>
+
         <div className="flex min-w-0 flex-col">
           <span className="block truncate text-body2 font-bold">{title}</span>
           <span className="block truncate text-label text-[#777]">{author}</span>

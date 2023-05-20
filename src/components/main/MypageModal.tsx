@@ -1,8 +1,9 @@
+import { useRouter } from "next/router";
+import { deleteCookie } from "cookies-next";
 import { Dialog } from "@headlessui/react";
+
 import { useModalActions, useMypageModalState } from "@/store/useModalStore";
 import { IconCancel } from "@/static/icons";
-import { deleteCookie } from "cookies-next";
-import { useRouter } from "next/router";
 
 interface Props {
   nickname: string;
@@ -23,8 +24,12 @@ const MypageModal = ({ nickname }: Props) => {
   };
 
   return (
-    <Dialog open={isOpen} onClose={handleClose}>
-      <Dialog.Panel className="h-mypage-modal fixed top-0 right-0 z-40 w-[230px] rounded-l-[10px] bg-white p-[30px]">
+    <Dialog
+      open={isOpen}
+      onClose={handleClose}
+      className="fixed top-0 z-20 flex h-[100dvh] w-full min-w-[320px] items-start justify-end bg-black/20 sm:left-1/2 sm:max-w-[375px] sm:-translate-x-1/2"
+    >
+      <Dialog.Panel className="h-mypage-modal relative w-[230px] rounded-l-[10px] bg-white p-[30px]">
         <div className="flex justify-end">
           <IconCancel onClick={handleClose} className="mt-[30px] text-[#585858]" />
         </div>
@@ -38,7 +43,6 @@ const MypageModal = ({ nickname }: Props) => {
           <button onClick={handleClickLogout}>로그아웃하기</button>
         </div>
       </Dialog.Panel>
-      <Dialog.Backdrop className="fixed inset-0 z-30 bg-black/20" />
     </Dialog>
   );
 };

@@ -56,11 +56,11 @@ const SearchBookModal = () => {
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <Dialog.Panel className="fixed inset-0 z-30 bg-main-100">
+      <Dialog.Panel className="fixed top-0 z-30 h-[100dvh] w-full bg-main-100 sm:left-1/2 sm:max-w-[375px] sm:-translate-x-1/2">
         <Dialog.Title className="flex h-[125px] flex-col items-center justify-center gap-[20px] px-6">
           <div className="flex w-full items-center justify-between">
             <PageTitle title="책 검색하기" />
-            <IconCancel onClick={handleClose} />
+            <IconCancel onClick={handleClose} className="cursor-pointer" />
           </div>
 
           <SearchInput
@@ -72,7 +72,7 @@ const SearchBookModal = () => {
 
         <Dialog.Description
           as="div"
-          className={`h-search-container px-6 ${selectedBook && "pb-[60px]"}`}
+          className={`h-search-container px-6 ${selectedBook ? "pb-[60px]" : "pb-6"}`}
         >
           {query ? (
             <SearchBookContainer
