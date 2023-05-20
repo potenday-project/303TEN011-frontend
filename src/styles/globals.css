@@ -34,6 +34,10 @@ body::-webkit-scrollbar-thumb {
   scrollbar-width: none; /* Firefox */
 }
 
+.scrollbar-design {
+  overflow-y: overlay;
+}
+
 .scrollbar-design::-webkit-scrollbar {
   width: 6px;
 }

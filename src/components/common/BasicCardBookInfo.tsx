@@ -20,9 +20,7 @@ const BasicCardBookInfo = ({
       <span className={`${titleClassName} block truncate break-keep ${fontColor} text-opacity-80`}>
         {bookTitle}
       </span>
-      <span
-        className={`${authorClassName} mt-[1vw] block truncate sm:mt-[1px] ${fontColor} text-opacity-60`}
-      >
+      <span className={`${authorClassName} block truncate ${fontColor} text-opacity-60`}>
         {bookAuthors}
       </span>
     </div>

@@ -24,7 +24,7 @@ const ArchiveContainer = () => {
       {contents.map((item) => (
         <Link href={`/archive/${item.id}`} key={item.id}>
           <BasicCard
-            className="gap-[2vw] p-[3.2vw] sm:gap-[10px]"
+            className="gap-[2vw] p-[3.2vw] sm:gap-[10px] sm:p-[10px]"
             backgroundColor={item.backgroundColor}
             imageSize={item.imageSize}
             fontColor={item.fontColor}
@@ -38,8 +38,8 @@ const ArchiveContainer = () => {
             />
             <BasicCardBookInfo
               className="bottom-[3vw] left-[3vw] w-[35vw] sm:bottom-[10px] sm:left-[10px] sm:w-[110px]"
-              titleClassName="text-[1.8vw] leading-[3vw] sm:text-[6px] sm:leading-[7.5px]"
-              authorClassName="text-[1.5vw] leading-[2.5vw] sm:text-[5px] sm:leading-[7px]"
+              titleClassName="text-[1.8vw] leading-[3vw] sm:text-[6px] sm:leading-[12px]"
+              authorClassName="text-[1.5vw] leading-[2.5vw] sm:text-[5px] sm:leading-[10px]"
               fontColor={item.fontColor}
               bookTitle={item.title}
               bookAuthors={item.author}

@@ -35,7 +35,7 @@ const CardContainer = () => {
         />
 
         {content.length === 0 && (
-          <span className="absolute bottom-[31vw] text-[3.5vw] text-[#9a9a9a] sm:bottom-[110px] sm:text-caption1">
+          <span className="absolute bottom-[31vw] text-[3.5vw] text-[#9a9a9a] sm:bottom-[90px] sm:text-caption1">
             문구는 6줄 까지만 입력 해주세요.
           </span>
         )}
