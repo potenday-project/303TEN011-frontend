@@ -57,7 +57,10 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
         <>
           <ContainerTitle title="검색 결과" />
 
-          <RadioGroup onChange={onChange} className="h-search-result-container overflow-y-auto">
+          <RadioGroup
+            onChange={onChange}
+            className="h-search-result-container scrollbar-design overflow-y-auto"
+          >
             {contents.map((item, idx) => (
               <SearchBookItem key={idx} item={item} />
             ))}

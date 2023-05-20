@@ -23,7 +23,7 @@ const RecentQueryContainer = ({ onClick }: Props) => {
     <>
       <ContainerTitle title="최근 검색 기록" />
 
-      <RadioGroup className="flex flex-wrap content-start items-start gap-[6px] overflow-y-auto">
+      <RadioGroup className="scrollbar-design flex h-full flex-wrap content-start items-start gap-[6px] overflow-y-auto">
         {historyStore?.history.map((query) => (
           <RadioGroup.Option
             onClick={() => onClick(query)}
