@@ -15,14 +15,16 @@ const FontColorPicker = () => {
     <RadioGroup
       onChange={(value) => postData("fontColor", value)}
       defaultValue={fontColor}
-      className="absolute bottom-[16px] right-[16px] flex items-center gap-[6px]"
+      className="absolute bottom-[5vw] right-[6.5vw] flex items-center gap-[2vw] sm:bottom-4 sm:right-5 sm:gap-[6px]"
     >
-      <RadioGroup.Label className={`${fontColor} text-[8px] font-medium`}>FONT</RadioGroup.Label>
+      <RadioGroup.Label className={`${fontColor} text-[2.5vw] font-medium sm:text-[8px]`}>
+        FONT
+      </RadioGroup.Label>
       {PICKER_ARR.map((color) => (
         <RadioGroup.Option
           key={color.text}
           value={color.text}
-          className={`${color.bg} h-5 w-5 rounded-full border ${color.border}`}
+          className={`${color.bg} h-[6.25vw] w-[6.25vw] rounded-full border sm:h-5 sm:w-5 ${color.border}`}
         />
       ))}
     </RadioGroup>
