@@ -1,15 +1,15 @@
-import Container from "@/components/common/Container";
-import Logo from "@/components/common/Logo";
-import useSplash from "@/hooks/common/useSplash";
+import Layout from "@/@shared/elements/Layout";
+import Logo from "@/@shared/elements/Logo";
+import useLanding from "@/@shared/hooks/useLanding";
 
-const Home = () => {
-  useSplash();
+const Landing = () => {
+  useLanding();
 
   return (
-    <Container className="flex items-center justify-center">
+    <Layout className="flex items-center justify-center">
       <Logo />
-    </Container>
+    </Layout>
   );
 };
 
-export default Home;
+export default Landing;

@@ -1,8 +1,8 @@
-import { getCookie } from "cookies-next";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { getCookie } from "cookies-next";
 
-const useSplash = () => {
+const useLanding = () => {
   const token = getCookie("token");
   const { push } = useRouter();
 
@@ -19,4 +19,4 @@ const useSplash = () => {
   }, []);
 };
 
-export default useSplash;
+export default useLanding;

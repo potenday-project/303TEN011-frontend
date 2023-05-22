@@ -1,7 +1,11 @@
-const Logo = () => {
+interface LogoProps {
+  width?: number;
+}
+
+const Logo = ({ width = 113 }: LogoProps) => {
   return (
     <svg
-      width="113"
+      width={width}
       height="36"
       viewBox="0 0 113 36"
       fill="none"
