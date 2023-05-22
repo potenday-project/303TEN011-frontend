@@ -19,7 +19,7 @@ const Main = ({ nickname }: MainProps) => {
     <>
       <MypageModal nickname={nickname} />
 
-      <Layout bgColor="bg-main-900" className="pt-[290px]">
+      <Layout bgColor="bg-main-900" className="flex items-end">
         <MainHeader />
 
         <InnerLayout className="h-main-inner-container flex flex-col gap-9 pb-[80px]">
