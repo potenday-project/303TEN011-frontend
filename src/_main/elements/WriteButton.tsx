@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import PageTitle from "../common/PageTitle";
+import PageTitle from "@/@shared/elements/PageTitle";
 import { IconButtonArrow } from "@/static/icons";
 
 const WriteButton = () => {
