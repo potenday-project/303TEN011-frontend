@@ -11,8 +11,13 @@ module.exports = {
         jsongmyung: ["var(--font-jsongmyung)"],
       },
       colors: {
-        "main-100": "#F5F3F1",
-        "main-900": "#2C2A29",
+        main: {
+          100: "#F5F3F1",
+          900: "#2C2A29",
+        },
+      },
+      backgroundImage: {
+        login: "url('../../public/images/background_login.svg')",
       },
       fontSize: {
         lg: ["17px", "24px"],
