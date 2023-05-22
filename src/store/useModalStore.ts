@@ -2,14 +2,19 @@ import { create } from "zustand";
 
 type Type = "mypage" | "searchBook" | "searchArchive";
 
-interface ModalState {
+interface State {
   mypage: boolean;
   searchBook: boolean;
   searchArchive: boolean;
+}
+
+interface Actions {
   actions: {
     changeModalState: (type: Type) => void;
   };
 }
+
+interface ModalState extends State, Actions {}
 
 const useModalStore = create<ModalState>((set) => ({
   mypage: false,
@@ -24,8 +29,8 @@ const useModalStore = create<ModalState>((set) => ({
 
 export default useModalStore;
 
-export const useModalActions = () => useModalStore((state) => state.actions);
-
 export const useMypageModalState = () => useModalStore((state) => state.mypage);
 export const useSearchBookModalState = () => useModalStore((state) => state.searchBook);
 export const useSearchArchiveModalState = () => useModalStore((state) => state.searchArchive);
+
+export const useModalActions = () => useModalStore((state) => state.actions);
