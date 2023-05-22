@@ -4,15 +4,16 @@
 }
 
 .h-main-inner-container {
+  margin-top: 290px;
   min-height: calc(100dvh - 290px);
 }
 
-.h-search-container {
+.h-drawer-container {
   height: calc(100dvh - 125px);
 }
 
-.h-search-result-container {
-  height: calc(100% - 24px);
+.h-search-container {
+  height: calc(100% - 25px);
 }
 
 .h-archive-inner-container {
