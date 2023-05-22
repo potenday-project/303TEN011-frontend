@@ -23,7 +23,7 @@ const SearchResultItem = ({ item }: SearchResultItemProps) => {
               src={item.thumbnail}
               alt="커버이미지"
               fill
-              sizes="120px"
+              sizes="50px"
               priority
             />
           )}

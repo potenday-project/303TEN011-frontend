@@ -6,7 +6,7 @@ const FullCard = ({ ...data }: GetCardData) => {
   return (
     <Link href={`/archive/${data.id}`}>
       <Card
-        className="gap-[4.5vw] p-[6.5vw] sm:gap-[14px] sm:p-5"
+        className="gap-[4vw] p-[6.5vw] sm:gap-[12px] sm:p-5"
         backgroundColor={data.backgroundColor}
         imageSize={data.imageSize}
         fontColor={data.fontColor}
