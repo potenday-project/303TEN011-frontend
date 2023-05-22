@@ -17,6 +17,7 @@ module.exports = {
         },
       },
       backgroundImage: {
+        landing: "url('../../public/images/background_landing.svg')",
         login: "url('../../public/images/background_login.svg')",
         main: "url('../../public/images/background_main.svg')",
       },
