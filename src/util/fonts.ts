@@ -23,23 +23,23 @@ export const jsongmyung = localFont({
 export const pretendard = localFont({
   src: [
     {
-      path: "../static/fonts/Pretendard-Regular.woff",
+      path: "../../public/fonts/Pretendard-Regular.woff",
       weight: "400",
     },
     {
-      path: "../static/fonts/Pretendard-Medium.woff",
+      path: "../../public/fonts/Pretendard-Medium.woff",
       weight: "500",
     },
     {
-      path: "../static/fonts/Pretendard-SemiBold.woff",
+      path: "../../public/fonts/Pretendard-SemiBold.woff",
       weight: "600",
     },
     {
-      path: "../static/fonts/Pretendard-Bold.woff",
+      path: "../../public/fonts/Pretendard-Bold.woff",
       weight: "700",
     },
     {
-      path: "../static/fonts/Pretendard-ExtraBold.woff",
+      path: "../../public/fonts/Pretendard-ExtraBold.woff",
       weight: "800",
     },
   ],
