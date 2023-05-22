@@ -1,9 +1,9 @@
+import IconButton from "@/@shared/elements/IconButton";
+import { IconCancel } from "@/static/icons";
+import { useWriteActions, useWriteState } from "@/store/useWriteStore";
 import Image from "next/image";
 
-import { useWriteActions, useWriteState } from "@/store/useWriteStore";
-import { IconCancel } from "@/static/icons";
-
-const SelectedBook = () => {
+const AfterSelection = () => {
   const { title, thumbnail, author } = useWriteState();
 
   const { clearData } = useWriteActions();
@@ -33,14 +33,13 @@ const SelectedBook = () => {
         </div>
       </div>
 
-      <button
+      <IconButton
+        icon={<IconCancel />}
         onClick={handleClickCancel}
-        className="flex w-[28px] shrink-0 items-center justify-center text-[#585858]"
-      >
-        <IconCancel />
-      </button>
+        className="flex shrink-0 text-[#585858]"
+      />
     </div>
   );
 };
 
-export default SelectedBook;
+export default AfterSelection;

@@ -1,7 +1,7 @@
 import { IconSearch } from "@/static/icons";
 import { useModalActions } from "@/store/useModalStore";
 
-const NotSelectedBook = () => {
+const BeforeSelection = () => {
   const { changeModalState } = useModalActions();
   const handleClickModalButton = () => {
     changeModalState("searchBook");
@@ -18,4 +18,4 @@ const NotSelectedBook = () => {
   );
 };
 
-export default NotSelectedBook;
+export default BeforeSelection;
