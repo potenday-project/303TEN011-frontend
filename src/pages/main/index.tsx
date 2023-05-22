@@ -1,59 +1,32 @@
 import { getCookie } from "cookies-next";
 import { GetServerSideProps } from "next";
 
-import Container from "@/components/common/Container";
-import InnerContainer from "@/components/common/InnerContainer";
-import Nav from "@/components/common/Nav";
-import PageTitle from "@/components/common/PageTitle";
+import MainHeader from "@/_main/components/MainHeader";
+import MypageModal from "@/_main/components/MypageModal";
+import RandomCardContainer from "@/_main/components/RandomCardContainer";
+import WriteButton from "@/_main/elements/WriteButton";
 
-import RitualCard from "@/components/main/RitualCard";
-import WriteButton from "@/components/main/WriteButton";
-import RandomCard from "@/components/main/RandomCard";
-import MypageModal from "@/components/main/MypageModal";
+import InnerLayout from "@/@shared/elements/InnerLayout";
+import Layout from "@/@shared/elements/Layout";
+import Nav from "@/@shared/elements/Nav";
 
-import { IconDrawer } from "@/static/icons";
-import { useModalActions } from "@/store/useModalStore";
-
-interface Props {
+interface MainProps {
   nickname: string;
 }
 
-const Main = ({ nickname }: Props) => {
-  const { changeModalState } = useModalActions();
-  const handleclickMypage = () => {
-    changeModalState("mypage");
-  };
-
+const Main = ({ nickname }: MainProps) => {
   return (
     <>
       <MypageModal nickname={nickname} />
 
-      <Container bgColor="bg-main-900" className="pt-[240px]">
-        <header className="fixed top-0 flex h-[290px] w-full min-w-[320px] flex-col gap-[25px] bg-main-900 px-6 sm:max-w-[320px]">
-          <div className="flex h-[50px] w-full items-center justify-between">
-            <PageTitle
-              title="하루 한줄"
-              fontSize="text-headline3"
-              fontColor="text-white"
-              lineColor="bg-[#616161]"
-            />
+      <Layout bgColor="bg-main-900" className="pt-[290px]">
+        <MainHeader />
 
-            <button onClick={handleclickMypage}>
-              <IconDrawer />
-            </button>
-          </div>
-
-          <RitualCard />
-        </header>
-
-        <InnerContainer className="h-main-inner-container mt-[50px] px-6 pt-7 pb-[60px]">
+        <InnerLayout className="h-main-inner-container flex flex-col gap-9 pb-[80px]">
           <WriteButton />
-
-          <PageTitle title="오늘의 한줄" className="mt-9" />
-
-          <RandomCard />
-        </InnerContainer>
-      </Container>
+          <RandomCardContainer />
+        </InnerLayout>
+      </Layout>
 
       <Nav />
     </>
