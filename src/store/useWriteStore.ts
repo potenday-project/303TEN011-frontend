@@ -1,6 +1,6 @@
-import { CardData, GetCardData } from "@/apis/api";
 import { create } from "zustand";
 import { shallow } from "zustand/shallow";
+import { GetCardData, PostCardData } from "@/@shared/types/cardTypes";
 
 type Type =
   | "title"
@@ -12,18 +12,23 @@ type Type =
   | "fontStyle"
   | "fontColor";
 
-interface WriteState {
-  data: CardData;
+interface State {
+  data: PostCardData;
   edit: {
     editMode: boolean;
     editNumber: number;
   };
+}
+
+interface Actions {
   actions: {
     postData: (type: Type, cardData: string) => void;
     clearData: () => void;
     editData: (editData: GetCardData) => void;
   };
 }
+
+interface WriteState extends State, Actions {}
 
 const initialData = {
   title: "",
@@ -73,6 +78,7 @@ const useWriteStore = create<WriteState>((set) => ({
 
 export default useWriteStore;
 
-export const useWriteActions = () => useWriteStore((state) => state.actions);
 export const useWriteState = () => useWriteStore((state) => state.data, shallow);
 export const useEditState = () => useWriteStore((state) => state.edit, shallow);
+
+export const useWriteActions = () => useWriteStore((state) => state.actions);
