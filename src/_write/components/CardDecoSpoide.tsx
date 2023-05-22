@@ -7,7 +7,7 @@ const CardDecoSpoide = () => {
   const { postData } = useWriteActions();
   const { thumbnail, backgroundColor } = useWriteState();
 
-  const { data: colorData } = usePalette(
+  const { data: colorData, loading } = usePalette(
     thumbnail
       ? `https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=${encodeURIComponent(
           thumbnail,
@@ -24,16 +24,22 @@ const CardDecoSpoide = () => {
     <RadioGroup
       className="deco-tab-group"
       onChange={(value) => postData("backgroundColor", value)}
-      defaultValue={backgroundColor}
+      value={backgroundColor}
     >
-      {colorData?.map((color) => (
-        <RadioGroup.Option
-          style={{ backgroundColor: color }}
-          className="deco-tab-option"
-          key={color}
-          value={color}
-        />
-      ))}
+      {colorData && (
+        <>
+          {colorData.map((color) => (
+            <RadioGroup.Option
+              style={{ backgroundColor: color }}
+              className="deco-tab-option"
+              key={color}
+              value={color}
+            />
+          ))}
+        </>
+      )}
+
+      {loading && <span className="text-body2 font-medium">색상 불러오는 중...</span>}
     </RadioGroup>
   );
 };

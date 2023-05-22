@@ -40,7 +40,7 @@ const CardDecoTemplate = () => {
     <RadioGroup
       className="deco-tab-group"
       onChange={(value) => postData("backgroundColor", value)}
-      defaultValue={backgroundColor}
+      value={backgroundColor}
     >
       {TEMPLATE_STYLE.map((item, idx) => (
         <RadioGroup.Option key={idx} className="deco-tab-option" value={item.value}>

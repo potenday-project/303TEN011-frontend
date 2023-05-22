@@ -19,7 +19,7 @@ const CardDecoSize = () => {
     <RadioGroup
       className="deco-tab-group"
       onChange={(value) => postData("imageSize", value)}
-      defaultValue={imageSize}
+      value={imageSize}
     >
       {CARD_SIZE.map((item, idx) => (
         <RadioGroup.Option key={idx} className="deco-tab-option" value={item.value}>

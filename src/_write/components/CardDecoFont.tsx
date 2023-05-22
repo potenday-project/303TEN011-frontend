@@ -21,7 +21,7 @@ const CardDecoFont = () => {
     <RadioGroup
       className="deco-tab-group"
       onChange={(value) => postData("fontStyle", value)}
-      defaultValue={fontStyle}
+      value={fontStyle}
     >
       {FONT_STYLE.map((item, idx) => (
         <RadioGroup.Option key={idx} className="deco-tab-option w-fit px-3" value={item.value}>
