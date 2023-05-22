@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundImage: {
         login: "url('../../public/images/background_login.svg')",
+        main: "url('../../public/images/background_main.svg')",
       },
       fontSize: {
         lg: ["17px", "24px"],

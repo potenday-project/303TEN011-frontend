@@ -12,7 +12,7 @@ const MainHeader = () => {
   };
 
   return (
-    <section className="h-[290px] w-full min-w-[320px] px-6">
+    <section className="fixed top-0 h-[290px] w-full min-w-[320px] bg-main bg-bottom bg-no-repeat px-6 sm:max-w-[320px]">
       <article className="flex h-[60px] w-full items-center justify-between">
         <Logo width={87} fontColor="#F5F3F1" lineColor="#616161" />
         <IconButton icon={<IconDrawer />} onClick={handleclickMypage} />
