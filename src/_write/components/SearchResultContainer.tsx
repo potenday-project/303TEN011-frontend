@@ -1,27 +1,31 @@
-import Image from "next/image";
 import { useMemo } from "react";
+import Image from "next/image";
 import { RadioGroup } from "@headlessui/react";
 
-import ContainerTitle from "./ContainerTitle";
-import SearchBookItem from "./SearchBookItem";
+import ContainerTitle from "@/_write/elements/ContainerTitle";
+import SearchBookItem from "@/_write/elements/SearchResultItem";
+import useGetSearchBook from "@/_write/queries/useGetSearchBook";
+import type { BookInfo } from "@/_write/types/bookTypes";
 
-import type { BookInfo } from "@/constants/types";
-import useIntersect from "@/hooks/common/useIntersect";
-import useGetSearchBook from "@/hooks/write/useGetSearchBook";
-import NotFoundSearchImage from "@/static/images/not_found_search.svg";
+import useIntersect from "@/@shared/hooks/useIntersect";
+import NotFoundSearchImage from "public/images/not_found_search.svg";
 import { useWriteActions } from "@/store/useWriteStore";
 
-interface Props {
+interface SearchResultContainerProps {
   query: string;
   onChange: (value: BookInfo) => void;
-  handleClose: () => void;
+  handleClickClose: () => void;
 }
 
-const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
+const SearchResultContainer = ({
+  query,
+  onChange,
+  handleClickClose,
+}: SearchResultContainerProps) => {
   const { postData } = useWriteActions();
   const handleClickButton = () => {
     postData("title", query);
-    handleClose();
+    handleClickClose();
   };
 
   const { data, hasNextPage, isFetching, fetchNextPage } = useGetSearchBook(query);
@@ -37,15 +41,15 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
     <>
       {!isFetching && contents.length === 0 ? (
         <div className="flex h-full flex-col items-center justify-center">
-          <span className="text-[#6a6a6a]">검색 결과가 없습니다🥲</span>
+          <span className="text-[#6a6a6a]">검색 결과가 없습니다 🥲</span>
           <Image
             className="mt-[14px]"
             src={NotFoundSearchImage}
             alt="검색 결과 없음 이미지"
-            width={178}
-            height={113}
+            width={103}
+            height={161}
           />
-          <div className="mt-[40px] text-ellipsis break-words break-all text-center font-bold">{`'${query}' (으)로`}</div>
+          <div className="mt-[30px] text-ellipsis break-words break-all text-center font-bold">{`'${query}' (으)로`}</div>
           <button
             onClick={handleClickButton}
             className="mt-1 h-[60px] w-full rounded-[10px] bg-[#ececec] font-medium"
@@ -59,7 +63,7 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
 
           <RadioGroup
             onChange={onChange}
-            className="h-search-result-container scrollbar-design overflow-y-auto"
+            className="h-search-container scrollbar-design overflow-y-auto"
           >
             {contents.map((item, idx) => (
               <SearchBookItem key={idx} item={item} />
@@ -72,4 +76,4 @@ const SearchBookContainer = ({ query, onChange, handleClose }: Props) => {
   );
 };
 
-export default SearchBookContainer;
+export default SearchResultContainer;
