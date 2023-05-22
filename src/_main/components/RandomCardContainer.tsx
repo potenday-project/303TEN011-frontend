@@ -6,8 +6,6 @@ import FullCard from "@/@shared/elements/FullCard";
 const RandomCardContainer = () => {
   const { data: randomCardData } = useGetRandomCard();
 
-  console.log(randomCardData);
-
   return (
     <div className="flex flex-col gap-6">
       <PageTitle title="오늘의 한줄" />
