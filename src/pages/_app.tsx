@@ -1,11 +1,12 @@
-import "@/styles/height.css";
-import "@/styles/globals.css";
-
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { pretendard } from "@/util/fonts";
-import Head from "next/head";
+
+import { pretendard } from "@/@shared/utils/fonts";
+
+import "@/styles/height.css";
+import "@/styles/globals.css";
 
 // if (typeof window === "undefined") {
 //   (async () => {
@@ -33,12 +34,14 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://one-line-a-day-kappa.vercel.app/" />
       </Head>
+
       <QueryClientProvider client={queryClient}>
         <main
           className={`${pretendard.variable} relative cursor-default font-pretendard sm:flex sm:justify-center`}
         >
           <Component {...pageProps} />
         </main>
+
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
