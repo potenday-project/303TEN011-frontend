@@ -18,10 +18,25 @@ body {
 
 body::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: #708488;
+  border-radius: 99px;
+}
+
+.scrollbar-design {
+  overflow-y: overlay;
+}
+
+.scrollbar-design::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-design::-webkit-scrollbar-thumb {
+  background-color: #2c2a29;
   border-radius: 99px;
 }
 
@@ -34,20 +49,11 @@ body::-webkit-scrollbar-thumb {
   scrollbar-width: none; /* Firefox */
 }
 
-.scrollbar-design {
-  overflow-y: overlay;
-}
-
-.scrollbar-design::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scrollbar-design::-webkit-scrollbar-thumb {
-  background-color: #2c2a29;
-  border-radius: 99px;
-}
-
 @layer components {
+  .media-center {
+    @apply sm:left-1/2 sm:max-w-[320px]  sm:-translate-x-1/2;
+  }
+
   .deco-tab-group {
     @apply scrollbar-hidden flex flex-nowrap gap-[10px] overflow-y-auto pr-6;
   }

@@ -13,22 +13,14 @@
   min-height: calc(100dvh - 140px);
 }
 
+.h-detail-inner-container {
+  min-height: calc(100dvh - 120px);
+}
+
 .h-drawer-container {
   height: calc(100dvh - 125px);
 }
 
 .h-search-container {
   height: calc(100% - 25px);
-}
-
-.h-archive-result-container {
-  height: calc(100dvh - 225px);
-}
-
-.h-detail-inner-container {
-  min-height: calc(100dvh - 120px);
-}
-
-.h-mypage-modal {
-  height: calc(100dvh - 60px);
 }

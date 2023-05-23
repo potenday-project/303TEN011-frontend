@@ -30,7 +30,7 @@ const MypageModal = ({ nickname }: Props) => {
       onClose={handleClose}
       className="sm:media-center fixed top-0 z-20 flex h-[100dvh] w-full min-w-[320px] items-start justify-end bg-black/20"
     >
-      <Dialog.Panel className="h-mypage-modal relative w-[230px] rounded-l-[10px] bg-white">
+      <Dialog.Panel className="relative h-[calc(100dvh-60px)] w-[230px] rounded-l-[10px] bg-white">
         <div className="flex h-[210px] flex-col gap-5 rounded-l-[10px] bg-main-900 pl-8 pr-6">
           <div className="flex h-[60px] items-center justify-end">
             <IconButton icon={<IconCancel className="text-white" />} onClick={handleClose} />

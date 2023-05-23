@@ -39,7 +39,7 @@ const CardDecoContainer = () => {
       )}
 
       {activeTab !== "none" && (
-        <div className="flex items-center gap-[9px] pt-[10px]">
+        <div className="-ml-6 flex w-[calc(100%+48px)] items-center gap-[9px] pl-6 pt-[10px]">
           <CardDecoTabButton
             onClick={() => handleActiveTab("none")}
             icon={<IconArrow />}
