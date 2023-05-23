@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API,
@@ -16,3 +16,16 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
+interface GetLoginData {
+  email: string;
+  nickname: string;
+  token: string;
+}
+
+export const kakaoLogin = async (code: string) => {
+  const { data } = await api.get<GetLoginData>("/oauth/kakao/redirect", { params: { code } });
+
+  setCookie("token", data.token);
+  setCookie("nickname", data.nickname);
+};
