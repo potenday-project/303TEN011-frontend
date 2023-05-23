@@ -20,6 +20,7 @@ module.exports = {
         landing: "url('../../public/images/background_landing.svg')",
         login: "url('../../public/images/background_login.svg')",
         main: "url('../../public/images/background_main.svg')",
+        archive: "url('../../public/images/background_archive.svg')",
       },
       fontSize: {
         lg: ["17px", "24px"],

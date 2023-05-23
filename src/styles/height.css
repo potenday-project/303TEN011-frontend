@@ -8,16 +8,17 @@
   min-height: calc(100dvh - 290px);
 }
 
+.h-archive-inner-container {
+  margin-top: 140px;
+  min-height: calc(100dvh - 140px);
+}
+
 .h-drawer-container {
   height: calc(100dvh - 125px);
 }
 
 .h-search-container {
   height: calc(100% - 25px);
-}
-
-.h-archive-inner-container {
-  min-height: calc(100dvh - 130px);
 }
 
 .h-archive-result-container {
