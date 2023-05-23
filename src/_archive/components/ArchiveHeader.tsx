@@ -14,7 +14,7 @@ const ArchiveHeader = ({ nickname }: ArchiveHeaderProps) => {
   };
 
   return (
-    <section className="fixed top-0 flex h-[140px] w-full items-start justify-between bg-archive bg-bottom bg-no-repeat px-6 pt-[80px] sm:max-w-[320px]">
+    <section className="fixed top-0 flex h-[140px] w-full min-w-[320px] items-start justify-between bg-archive bg-bottom bg-no-repeat px-6 pt-[80px] sm:max-w-[320px]">
       <PageTitle
         title={`${nickname}님의 매일의 기록`}
         fontColor="text-white"

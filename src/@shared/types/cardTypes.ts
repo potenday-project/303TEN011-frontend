@@ -14,3 +14,13 @@ export interface GetCardData extends PostCardData {
   createdDt: string;
   modifiedDt: string;
 }
+
+export interface PageableData {
+  first: boolean;
+  hasNext: boolean;
+  last: boolean;
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
