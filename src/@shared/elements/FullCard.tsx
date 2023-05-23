@@ -1,15 +1,18 @@
-import { GetCardData } from "@/@shared/types/cardTypes";
+import { ForwardedRef, forwardRef } from "react";
 import Link from "next/link";
-import Card from "./Card";
 
-const FullCard = ({ ...data }: GetCardData) => {
+import Card from "@/@shared/elements/Card";
+import { GetCardData } from "@/@shared/types/cardTypes";
+
+const FullCard = ({ ...data }: GetCardData, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <Link href={`/archive/${data.id}`}>
       <Card
-        className="gap-[4vw] p-[6.5vw] sm:gap-[12px] sm:p-5"
+        className="gap-[3.2vw] p-[6.5vw] sm:gap-[10px] sm:p-5"
         backgroundColor={data.backgroundColor}
         imageSize={data.imageSize}
         fontColor={data.fontColor}
+        ref={ref}
       >
         <Card.Quote className="w-[8.5vw] sm:w-[27px]" />
         <Card.Content
@@ -31,4 +34,4 @@ const FullCard = ({ ...data }: GetCardData) => {
   );
 };
 
-export default FullCard;
+export default forwardRef(FullCard);
