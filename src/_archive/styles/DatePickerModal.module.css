@@ -1,0 +1,22 @@
+.swiper {
+  height: 160px;
+  background-color: transparent;
+
+  cursor: grab;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.swiper-slide-active {
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.4;
+}

@@ -99,6 +99,21 @@ export const IconCardSize = () => {
 
 // 기타 아이콘
 
+export const IconDropdown = ({ className }: Argument) => {
+  return (
+    <svg
+      className={className}
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M14 19L19 11H9L14 19Z" fill="#2C2A29" />
+    </svg>
+  );
+};
+
 export const IconDownload = () => {
   return (
     <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -16,7 +16,7 @@ const ArchiveContainer = () => {
   });
 
   return (
-    <div className="scrollbar-design grid h-[calc(100dvh-224px)] grid-cols-2 content-start gap-3 overflow-y-auto pb-6">
+    <div className="scrollbar-design grid h-[calc(100dvh-274px)] grid-cols-2 content-start gap-3 overflow-y-auto pb-6">
       {contents.map((content) => (
         <HalfCard key={content.id} {...content} />
       ))}
