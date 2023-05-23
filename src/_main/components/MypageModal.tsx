@@ -11,9 +11,9 @@ interface Props {
 }
 
 const MypageModal = ({ nickname }: Props) => {
-  const { changeModalState } = useModalActions();
   const isOpen = useMypageModalState();
-  const handleClose = () => {
+  const { changeModalState } = useModalActions();
+  const handleClickClose = () => {
     changeModalState("mypage");
   };
 
@@ -27,13 +27,13 @@ const MypageModal = ({ nickname }: Props) => {
   return (
     <Dialog
       open={isOpen}
-      onClose={handleClose}
-      className="sm:media-center fixed top-0 z-20 flex h-[100dvh] w-full min-w-[320px] items-start justify-end bg-black/20"
+      onClose={handleClickClose}
+      className="sm:media-center fixed top-0 z-20 flex h-[100dvh] w-full min-w-[320px] items-start justify-end bg-black/60"
     >
       <Dialog.Panel className="relative h-[calc(100dvh-60px)] w-[230px] rounded-l-[10px] bg-white">
         <div className="flex h-[210px] flex-col gap-5 rounded-l-[10px] bg-main-900 pl-8 pr-6">
           <div className="flex h-[60px] items-center justify-end">
-            <IconButton icon={<IconCancel className="text-white" />} onClick={handleClose} />
+            <IconButton icon={<IconCancel className="text-white" />} onClick={handleClickClose} />
           </div>
           <div className="flex flex-col gap-1 text-headline2 font-medium text-white">
             <span>안녕하세요.</span>

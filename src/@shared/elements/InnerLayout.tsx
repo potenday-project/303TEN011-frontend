@@ -14,8 +14,12 @@ const InnerLayout = ({ children, className }: PropsWithChildren<InnerLayoutProps
   );
 };
 
-const InnerLayoutHeader = ({ children }: React.PropsWithChildren) => {
-  return <article className="mb-5 flex h-[30px] items-end justify-between">{children}</article>;
+const InnerLayoutHeader = ({ children, className }: PropsWithChildren<InnerLayoutProps>) => {
+  return (
+    <article className={`${className} mb-5 flex h-[30px] items-end justify-between`}>
+      {children}
+    </article>
+  );
 };
 
 InnerLayout.Header = InnerLayoutHeader;
