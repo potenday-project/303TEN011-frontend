@@ -1,47 +1,30 @@
 import { GetServerSideProps } from "next";
 import { getCookie } from "cookies-next";
 
-import SearchArchiveModal from "@/components/archive/SearchArchiveModal";
-import Container from "@/components/common/Container";
-import PageTitle from "@/components/common/PageTitle";
-import InnerContainer from "@/components/common/InnerContainer";
-import ArchiveContainer from "@/components/archive/ArchiveContainer";
-import Nav from "@/components/common/Nav";
+import ArchiveContainer from "@/_archive/components/ArchiveContainer";
+import ArchiveHeader from "@/_archive/components/ArchiveHeader";
+import SearchArchiveDrawer from "@/_archive/components/SearchArchiveDrawer";
 
-import { IconSearch } from "@/static/icons";
-import { useModalActions } from "@/store/useModalStore";
+import InnerLayout from "@/@shared/elements/InnerLayout";
+import Layout from "@/@shared/elements/Layout";
+import Nav from "@/@shared/elements/Nav";
 
 interface Props {
   nickname: string;
 }
 
 const Archive = ({ nickname }: Props) => {
-  const { changeModalState } = useModalActions();
-  const handleClickModalButton = () => {
-    changeModalState("searchArchive");
-  };
-
   return (
     <>
-      <SearchArchiveModal />
+      <SearchArchiveDrawer />
 
-      <Container bgColor="bg-main-900" className="flex items-end">
-        <header className="fixed top-0 flex h-[130px] w-full items-center justify-between bg-main-900 px-6 sm:max-w-[320px]">
-          <PageTitle
-            title={`${nickname}님의 매일의 기록`}
-            fontColor="text-white"
-            lineColor="bg-[#616161]"
-          />
+      <Layout bgColor="bg-main-900" className="flex items-end">
+        <ArchiveHeader nickname={nickname} />
 
-          <button onClick={handleClickModalButton} className="text-white">
-            <IconSearch />
-          </button>
-        </header>
-
-        <InnerContainer className="h-archive-inner-container px-6 pt-[35px] pb-[60px]">
+        <InnerLayout className="h-archive-inner-container">
           <ArchiveContainer />
-        </InnerContainer>
-      </Container>
+        </InnerLayout>
+      </Layout>
 
       <Nav />
     </>
