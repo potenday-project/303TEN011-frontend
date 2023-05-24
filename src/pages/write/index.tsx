@@ -11,14 +11,16 @@ import usePostCard from "@/_write/queries/usePostCard";
 
 import BottomButton from "@/@shared/elements/BottomButton";
 import InnerLayout from "@/@shared/elements/InnerLayout";
+import IconButton from "@/@shared/elements/IconButton";
 import Layout from "@/@shared/elements/Layout";
 import PageTitle from "@/@shared/elements/PageTitle";
 import TextButton from "@/@shared/elements/TextButton";
 import { useEditState, useWriteActions } from "@/store/useWriteStore";
+import { IconInfomation } from "@/static/icons";
+import { useModalActions, useWriteInfoModalState } from "@/store/useModalStore";
 
 const Write = () => {
   const { back } = useRouter();
-  const { clearData } = useWriteActions();
 
   const { editMode } = useEditState();
   const { mutate: editMutate } = useEditCard();
@@ -31,9 +33,16 @@ const Write = () => {
     }
   };
 
+  const { clearData } = useWriteActions();
   const handleClickClose = () => {
     clearData();
     back();
+  };
+
+  const isOpen = useWriteInfoModalState();
+  const { changeModalState } = useModalActions();
+  const handleClickInfo = () => {
+    changeModalState("writeInfo");
   };
 
   return (
@@ -43,7 +52,10 @@ const Write = () => {
       <Layout bgColor="bg-main-900" className="flex items-end">
         <InnerLayout className="h-inner-container pb-[80px]">
           <InnerLayout.Header>
-            <PageTitle title="오늘의 한줄" />
+            <div className="flex">
+              <PageTitle title="오늘의 한줄" />
+              <IconButton icon={<IconInfomation />} onClick={handleClickInfo} />
+            </div>
             <TextButton onClick={handleClickClose} />
           </InnerLayout.Header>
 
@@ -53,7 +65,7 @@ const Write = () => {
         </InnerLayout>
       </Layout>
 
-      <BottomButton onClick={handleClickWrite} />
+      <BottomButton visible={!isOpen} onClick={handleClickWrite} />
     </>
   );
 };

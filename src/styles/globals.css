@@ -61,4 +61,8 @@ body::-webkit-scrollbar-thumb {
   .deco-tab-option {
     @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#d4d4d4] ui-checked:border-black;
   }
+
+  .tooltip-tail {
+    @apply before:absolute before:bottom-[4px] before:left-[12px] before:-z-10 before:block before:h-4 before:w-4 before:rotate-45 before:rounded-[2px] before:bg-white before:content-[''];
+  }
 }

@@ -1,10 +1,11 @@
 import { create } from "zustand";
 
-type Type = "mypage" | "searchBook" | "searchArchive" | "datePicker";
+type Type = "mypage" | "searchBook" | "searchArchive" | "datePicker" | "writeInfo";
 
 interface State {
   mypage: boolean;
   datePicker: boolean;
+  writeInfo: boolean;
   searchBook: boolean;
   searchArchive: boolean;
 }
@@ -20,6 +21,7 @@ interface ModalState extends State, Actions {}
 const useModalStore = create<ModalState>((set) => ({
   mypage: false,
   datePicker: false,
+  writeInfo: false,
   searchBook: false,
   searchArchive: false,
   actions: {
@@ -33,6 +35,7 @@ export default useModalStore;
 
 export const useMypageModalState = () => useModalStore((state) => state.mypage);
 export const useDatePickerModalState = () => useModalStore((state) => state.datePicker);
+export const useWriteInfoModalState = () => useModalStore((state) => state.writeInfo);
 export const useSearchBookModalState = () => useModalStore((state) => state.searchBook);
 export const useSearchArchiveModalState = () => useModalStore((state) => state.searchArchive);
 

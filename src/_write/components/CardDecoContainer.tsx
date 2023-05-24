@@ -3,6 +3,7 @@ import CardDecoFont from "@/_write/components/CardDecoFont";
 import CardDecoSize from "@/_write/components/CardDecoSize";
 import CardDecoSpoide from "@/_write/components/CardDecoSpoide";
 import CardDecoTemplate from "@/_write/components/CardDecoTemplate";
+import WriteInfoModal from "@/_write/components/WriteInfoModal";
 import CardDecoTabButton from "@/_write/elements/CardDecoTabButton";
 import useDecoTabState from "@/_write/hooks/useDecoTabState";
 
@@ -19,7 +20,9 @@ const CardDecoContainer = () => {
   const { activeTab, handleActiveTab } = useDecoTabState();
 
   return (
-    <>
+    <div className="relative">
+      <WriteInfoModal />
+
       {activeTab === "none" && (
         <div className="flex items-center justify-between pt-[10px]">
           <div className="flex items-center gap-2">
@@ -53,7 +56,7 @@ const CardDecoContainer = () => {
           {activeTab === "size" && <CardDecoSize />}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
