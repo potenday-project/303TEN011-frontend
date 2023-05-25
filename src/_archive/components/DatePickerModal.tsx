@@ -1,26 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { Dialog } from "@headlessui/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper";
+import { Swiper as SwiperMain, SwiperSlide } from "swiper/react";
+import Swiper, { Mousewheel } from "swiper";
 import "swiper/css";
 import styles from "@/_archive/styles/DatePickerModal.module.css";
 
 import TextButton from "@/@shared/elements/TextButton";
 import { useDatePickerModalState, useModalActions } from "@/store/useModalStore";
 
-const YEAR = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].reverse();
-const MONTH = [1, 2, 4, 7, 9, 12];
+interface DatePickerModalProps {
+  totalDate: {
+    [year: number]: number[];
+  };
+}
 
-const DatePickerModal = () => {
-  const [date, setDate] = useState({ year: YEAR[0], month: MONTH[0] });
+const DatePickerModal = ({ totalDate }: DatePickerModalProps) => {
+  const YEAR_ARR = Object.keys(totalDate).reverse().map(Number);
+
+  const { push, query } = useRouter();
+  const year = Number(query.year) || 0;
+  const month = Number(query.month) || 0;
+  const [date, setDate] = useState({ year, month });
+
+  const handleClickSearch = () => {
+    changeModalState("datePicker");
+    push({ pathname: "/archive", query: { year: date.year, month: date.month } });
+  };
+
+  const [swiper, setSwiper] = useState<Swiper>();
+  useEffect(() => {
+    if (!swiper) return;
+    swiper.slideTo(0);
+  }, [date.year]);
 
   const isOpen = useDatePickerModalState();
   const { changeModalState } = useModalActions();
   const handleClickClose = () => {
-    changeModalState("datePicker");
-  };
-
-  const handleClickSearch = () => {
     changeModalState("datePicker");
   };
 
@@ -36,7 +52,7 @@ const DatePickerModal = () => {
         </div>
 
         <div className="relative grid grid-cols-2 px-3">
-          <Swiper
+          <SwiperMain
             className={styles["swiper"]}
             direction="vertical"
             centeredSlides
@@ -44,12 +60,23 @@ const DatePickerModal = () => {
             mousewheel
             slidesPerView={4}
             modules={[Mousewheel]}
-            initialSlide={YEAR.findIndex((e) => e === date.year)}
-            onSlideChange={({ activeIndex }) =>
-              setDate((prev) => ({ ...prev, year: YEAR[activeIndex] }))
-            }
+            initialSlide={YEAR_ARR.findIndex((e) => e === date.year) + 1 || 0}
+            onSlideChange={({ activeIndex }) => {
+              setDate((prev) => ({
+                ...prev,
+                year: YEAR_ARR[activeIndex - 1] || 0,
+                month: 0,
+              }));
+            }}
           >
-            {YEAR.map((item, idx) => (
+            <SwiperSlide
+              className={`${styles["swiper-slide"]} ${
+                0 === date.year && styles["swiper-slide-active"]
+              }`}
+            >
+              전체보기
+            </SwiperSlide>
+            {YEAR_ARR.map((item, idx) => (
               <SwiperSlide
                 className={`${styles["swiper-slide"]} ${
                   item === date.year && styles["swiper-slide-active"]
@@ -59,9 +86,9 @@ const DatePickerModal = () => {
                 {item}
               </SwiperSlide>
             ))}
-          </Swiper>
+          </SwiperMain>
 
-          <Swiper
+          <SwiperMain
             className={styles["swiper"]}
             direction="vertical"
             centeredSlides
@@ -69,12 +96,22 @@ const DatePickerModal = () => {
             mousewheel
             slidesPerView={4}
             modules={[Mousewheel]}
-            initialSlide={MONTH.findIndex((e) => e === date.month)}
-            onSlideChange={({ activeIndex }) =>
-              setDate((prev) => ({ ...prev, month: MONTH[activeIndex] }))
-            }
+            onSwiper={setSwiper}
+            initialSlide={totalDate[date.year]?.findIndex((e) => e === date.month) + 1 || 0}
+            onSlideChange={({ activeIndex }) => {
+              setDate((prev) => ({ ...prev, month: totalDate[date.year]?.[activeIndex - 1] || 0 }));
+            }}
           >
-            {MONTH.map((item, idx) => (
+            {date.year !== 0 && (
+              <SwiperSlide
+                className={`${styles["swiper-slide"]} ${
+                  0 === date.month && styles["swiper-slide-active"]
+                }`}
+              >
+                전체보기
+              </SwiperSlide>
+            )}
+            {totalDate[date.year]?.map((item, idx) => (
               <SwiperSlide
                 className={`${styles["swiper-slide"]} ${
                   item === date.month && styles["swiper-slide-active"]
@@ -84,7 +121,7 @@ const DatePickerModal = () => {
                 {item}월
               </SwiperSlide>
             ))}
-          </Swiper>
+          </SwiperMain>
 
           <div className="absolute left-3 top-1/2 h-10 w-[calc(100%-24px)] -translate-y-1/2 rounded-lg bg-[#EAEAEA]" />
         </div>

@@ -6,6 +6,7 @@ import ArchiveHeader from "@/_archive/components/ArchiveHeader";
 import DatePickerModal from "@/_archive/components/DatePickerModal";
 import DateSearchButton from "@/_archive/components/DateSearchButton";
 import SearchArchiveDrawer from "@/_archive/components/SearchArchiveDrawer";
+import useGetArchive from "@/_archive/queries/useGetArchive";
 
 import InnerLayout from "@/@shared/elements/InnerLayout";
 import Layout from "@/@shared/elements/Layout";
@@ -16,15 +17,17 @@ interface Props {
 }
 
 const Archive = ({ nickname }: Props) => {
+  const { data } = useGetArchive();
+
   return (
     <>
-      <DatePickerModal />
+      {data && <DatePickerModal totalDate={data.pages[0].creationDate} />}
       <SearchArchiveDrawer />
 
       <Layout bgColor="bg-main-900" className="flex items-end">
         <ArchiveHeader nickname={nickname} />
 
-        <InnerLayout className="h-archive-inner-container">
+        <InnerLayout className="h-archive-inner-container pb-[60px]">
           <InnerLayout.Header>
             <DateSearchButton />
           </InnerLayout.Header>
