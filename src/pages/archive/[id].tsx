@@ -54,7 +54,7 @@ const Detail = () => {
 
   return (
     <Layout bgColor="bg-main-900" className="flex items-end">
-      <InnerLayout className="h-inner-container pb-[24px]">
+      <InnerLayout className="h-inner-container pb-6">
         <InnerLayout.Header>
           <PageTitle title="나의 한줄" />
           <TextButton onClick={handleClickClose} />
