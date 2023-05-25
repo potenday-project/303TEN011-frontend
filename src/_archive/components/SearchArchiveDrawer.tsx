@@ -11,6 +11,7 @@ const SearchArchiveDrawer = () => {
   const isOpen = useSearchArchiveModalState();
   const handleClickClose = () => {
     changeModalState("searchArchive");
+    setQuery("");
   };
 
   const [query, setQuery] = useState("");
@@ -33,14 +34,6 @@ const SearchArchiveDrawer = () => {
         <SearchResultContainer query={query} />
       </Drawer.Body>
     </Drawer>
-
-    // <Dialog open={isOpen} onClose={handleClose}>
-    //   <Dialog.Panel className="fixed top-0 z-30 h-[100dvh] w-full bg-main-100 sm:left-1/2 sm:max-w-[320px] sm:-translate-x-1/2">
-    //     <Dialog.Description as="div" className={`h-search-container px-6 pb-6`}>
-    //       <SearchResultContainer query={query} />
-    //     </Dialog.Description>
-    //   </Dialog.Panel>
-    // </Dialog>
   );
 };
 
