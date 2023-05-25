@@ -15,7 +15,7 @@ import InnerLayout from "@/@shared/elements/InnerLayout";
 import Layout from "@/@shared/elements/Layout";
 import PageTitle from "@/@shared/elements/PageTitle";
 import TextButton from "@/@shared/elements/TextButton";
-
+import { timeFormat } from "@/@shared/utils/time";
 import { IconDownload } from "@/static/icons";
 import { useWriteActions } from "@/store/useWriteStore";
 
@@ -61,7 +61,14 @@ const Detail = () => {
         </InnerLayout.Header>
 
         <div className="flex min-h-[calc(100dvh-148px)] flex-col justify-between gap-3">
-          {detailData && <FullCard {...detailData} ref={cardRef} />}
+          {detailData && (
+            <div>
+              <FullCard {...detailData} ref={cardRef} />
+              <span className="flex w-full justify-end pt-1 pr-1 text-body2 font-medium text-[#b0b0b0]">
+                {timeFormat(detailData.createdDt)}
+              </span>
+            </div>
+          )}
 
           <div className="flex flex-col gap-2">
             <button
@@ -80,41 +87,6 @@ const Detail = () => {
         </div>
       </InnerLayout>
     </Layout>
-
-    // <Container bgColor="bg-main-900" className="flex items-end">
-    //   <InnerContainer className="h-inner-container">
-    //     <InnerContainerHeader title="나의 한줄" func={handleClickClose} />
-
-    //     <div className="h-detail-inner-container flex flex-col items-stretch justify-between gap-3 px-6 pb-6">
-    //       {data && (
-    //         <BasicCard
-    //           className="gap-[3.5vw] p-[6vw] sm:gap-[14px] sm:p-5"
-    //           backgroundColor={data.backgroundColor}
-    //           imageSize={data.imageSize}
-    //           fontColor={data.fontColor}
-    //           ref={cardRef}
-    //         >
-    //           <IconQuote className="w-[7.5vw] sm:w-6" />
-    //           <BasicCardContent
-    //             className="text-[5vw] leading-[7.5vw] sm:text-body1"
-    //             fontColor={data.fontColor}
-    //             fontStyle={data.fontStyle}
-    //             content={data.content}
-    //           />
-    //           <BasicCardBookInfo
-    //             className="bottom-[6vw] left-[6vw] w-[75vw] sm:bottom-[20px] sm:left-[20px] sm:w-[230px]"
-    //             titleClassName="text-[3.75vw] leading-[3.75vw] sm:text-[12px] sm:leading-[12px]"
-    //             authorClassName="text-[3vw] leading-[3vw] sm:text-[10px] sm:leading-[10px]"
-    //             fontColor={data.fontColor}
-    //             bookTitle={data.title}
-    //             bookAuthors={data.author}
-    //           />
-    //         </BasicCard>
-    //       )}
-
-    // </div>
-    //   </InnerContainer>
-    // </Container>
   );
 };
 
