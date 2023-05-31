@@ -20,7 +20,7 @@ import { IconDownload } from "@/static/icons";
 import { useWriteActions } from "@/store/useWriteStore";
 
 const Detail = () => {
-  const { push, back } = useRouter();
+  const { push, back, reload } = useRouter();
   const handleClickClose = () => {
     back();
   };
@@ -46,9 +46,11 @@ const Detail = () => {
       toPng(card, {
         canvasWidth: 1080,
         canvasHeight: detailData.imageSize === "aspect-square" ? 1080 : 1920,
-      }).then((image) => {
-        saveAs(image, "card.png");
-      });
+      })
+        .then((image) => {
+          saveAs(image, "card.png");
+        })
+        .then(() => reload());
     }
   };
 
