@@ -1,6 +1,7 @@
 import { getCookie } from "cookies-next";
 import { GetServerSideProps } from "next";
 
+import LeaveModal from "@/_main/components/LeaveModal";
 import MainHeader from "@/_main/components/MainHeader";
 import MypageModal from "@/_main/components/MypageModal";
 import RandomCardContainer from "@/_main/components/RandomCardContainer";
@@ -18,6 +19,7 @@ const Main = ({ nickname }: MainProps) => {
   return (
     <>
       <MypageModal nickname={nickname} />
+      <LeaveModal />
 
       <Layout bgColor="bg-main-900" className="flex items-end">
         <MainHeader />

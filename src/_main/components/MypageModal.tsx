@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { useRouter } from "next/router";
 import { deleteCookie } from "cookies-next";
 import { Dialog } from "@headlessui/react";
@@ -24,6 +25,11 @@ const MypageModal = ({ nickname }: Props) => {
     replace("/");
   };
 
+  const handleClickLeave = () => {
+    changeModalState("mypage");
+    changeModalState("leave");
+  };
+
   return (
     <Dialog
       open={isOpen}
@@ -41,10 +47,9 @@ const MypageModal = ({ nickname }: Props) => {
           </div>
         </div>
 
-        <div className="px-8 py-4 font-medium">
-          <button className="flex h-9 w-full items-center" onClick={handleClickLogout}>
-            로그아웃하기
-          </button>
+        <div className="my-4 ml-8 mr-12 divide-y divide-[#d9d9d9]  font-medium">
+          <ModalListItem onClick={handleClickLogout}>로그아웃하기</ModalListItem>
+          <ModalListItem onClick={handleClickLeave}>탈퇴하기</ModalListItem>
         </div>
       </Dialog.Panel>
     </Dialog>
@@ -52,3 +57,14 @@ const MypageModal = ({ nickname }: Props) => {
 };
 
 export default MypageModal;
+
+const ModalListItem = ({
+  onClick,
+  children,
+}: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => {
+  return (
+    <button className="flex h-10 w-full items-center" onClick={onClick}>
+      {children}
+    </button>
+  );
+};
