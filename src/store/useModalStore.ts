@@ -2,14 +2,9 @@ import { create } from "zustand";
 
 type Type = "mypage" | "leave" | "searchBook" | "searchArchive" | "datePicker" | "writeInfo";
 
-interface State {
-  mypage: boolean;
-  leave: boolean;
-  datePicker: boolean;
-  writeInfo: boolean;
-  searchBook: boolean;
-  searchArchive: boolean;
-}
+type State = {
+  [K in Type]: boolean;
+};
 
 interface Actions {
   actions: {

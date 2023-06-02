@@ -17,7 +17,7 @@ import PageTitle from "@/@shared/elements/PageTitle";
 import TextButton from "@/@shared/elements/TextButton";
 import { useEditState, useWriteActions } from "@/store/useWriteStore";
 import { IconInfomation } from "@/static/icons";
-import { useModalActions, useWriteInfoModalState } from "@/store/useModalStore";
+import { useModalActions } from "@/store/useModalStore";
 
 const Write = () => {
   const { back } = useRouter();
@@ -39,7 +39,6 @@ const Write = () => {
     back();
   };
 
-  const isOpen = useWriteInfoModalState();
   const { changeModalState } = useModalActions();
   const handleClickInfo = () => {
     changeModalState("writeInfo");
@@ -65,7 +64,7 @@ const Write = () => {
         </InnerLayout>
       </Layout>
 
-      <BottomButton visible={!isOpen} onClick={handleClickWrite} />
+      <BottomButton onClick={handleClickWrite} />
     </>
   );
 };

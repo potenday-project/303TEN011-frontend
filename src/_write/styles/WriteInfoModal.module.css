@@ -8,6 +8,8 @@
 }
 
 .swiper-slide {
+  position: relative;
+  z-index: 30;
 }
 
 .swiper-slide-active {
