@@ -3,8 +3,7 @@
 ## 서비스 소개
 
 - 하루에 읽은 책 중 마음에 드는 문장을 이미지로 아카이빙하여 리츄얼을 형성해보세요.
-- [서비스 시연 영상](https://youtu.be/qJZVtKnNYyw)
-  - 서버 에러로 인해 시연 영상으로 대체합니다.
+- [서비스 링크](https://one-line-a-day-kappa.vercel.app)
 
 ## 작업 기간
 
@@ -12,41 +11,63 @@
 
 ## 기술 스택
 
-- Language
-  - TypeScript
-- Framework
-  - create-next-app
-  - Next.js
-- State Management
-  - Tanstack Query
-  - Zustand
-- CSS
-  - Tailwind CSS
-- Linter
-  - ESLint
-  - Prettier
-- Deploy
-  - Vercel
+- TypeScript
+- Next.js
+- React Query / Zustand
+- Tailwind CSS / Headless UI
+- ESLint / Prettier
+- Vercel
+- 그 외 주요 라이브러리
+  - msw: 서버 구현 전에 목데이터를 사용할 수 있는 라이브러리
+  - cookies-next: next에서 CSR, SSR환경 모두 쿠키를 용이하게 관리하는 라이브러리
+  - color-thief-react: 이미지에서 컬러를 추출하여 색상 코드를 전달해주는 라이브러리
+  - html-to-image: 지정한 컴포넌트를 이미지 파일로 변환해주는 라이브러리
+  - file-saver: 파일로 저장하여 다운로드를 할 수 있는 라이브러리
+
+## 개발 업무
+
+- 프론트엔드 작업 100% 진행했습니다.
+- 피그마를 기반으로 재사용 가능한 컴포넌트를 만들어 사용했습니다.
+- [폰트 최적화](https://youth-dev-log.vercel.app/blog/font-optimization-in-nextjs) 및 [이미지 최적화](https://youth-dev-log.vercel.app/blog/font-optimization-in-nextjs)를 사용했습니다.
+- [책 커버에서 컬러를 추출하는 UI를 구현했습니다.](https://youth-dev-log.vercel.app/blog/how-to-use-color-thief-react)
+- [문장 카드를 이미지로 받을 수 있는 기능을 구현했습니다.](https://youth-dev-log.vercel.app/blog/how-to-make-a-component-into-an-image)
+- getServerSideProps를 사용하여 토큰 유무에 따라 라우트 접근 제한을 적용했습니다.
+
+## 얻은 경험
+
+### 빠른 기간 내에 MVP 개발
+
+- 10일이라는 총 기간과 4일 남짓 했던 개발 기간 동안 빠르게 서비스를 구현하는 경험을 했습니다. 한정된 시간을 가지고 있는 만큼 중요한 순위를 두는 연습을 했습니다.
+- 오류를 빠르게 검색하고 구현이 어려운 부분은 대체할 수 있게 틈틈이 팀원들과 소통했습니다.
+
+### 다양한 직군과의 협업
+
+- 프론트엔드 간의 협업은 없이 혼자 프론트엔드 개발을 하였지만, 그 외에는 기획자, 디자이너, 백엔드 개발자분들과 협업을 진행할 수 있었습니다.
+- 피그마를 통해 직관적으로 소통하는 경험을 했습니다.
+- 각자가 신경써야 하는 부분이 조금씩 달랐기 때문에 이를 적절히 협의하여 좋은 서비스를 만들어야 한다는걸 느꼈습니다.
 
 ## 사이트 화면
 
-### 로그인 페이지
+### 랜딩 페이지 및 로그인 페이지
 
 - 카카오 소셜 로그인을 통해 메인화면으로 이동할 수 있습니다.
-- cookies-next를 사용하여 서버로부터 받은 토큰을 쿠키에 저장하여 csr, ssr시에 모두 사용 가능하도록 했습니다.
-- getServerSideProps를 사용하여 토큰 유무에 따라 라우트 접근 제한을 적용했습니다.
 
-<img width="200" alt="스크린샷 2023-04-06 오후 3 18 33" src="https://user-images.githubusercontent.com/97172050/230292815-9e8164b2-74ff-432e-a1ad-89b6b8b65f3d.png">
+<p float="left">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 5 41 05" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/e81fa668-8ff6-476a-9609-2f81d2189b02">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 5 41 46" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/75ddb8b1-6ef4-4108-9be4-aa0fee5a4fbe">
+</p>
 
 ### 메인 페이지
 
 - 사용자 개인의 데이터를 수치화하여 보여줍니다. (기록한 문장의 갯수, 문장을 연속으로 등록한 날 등...)
-- 등록했던 문장 중 하나를 랜덤으로 보여주는 카드가 있습니다.
-- 햄버거 메뉴를 통해 로그아웃을 할 수 있습니다.
+- 등록했던 카드 중 하나를 랜덤으로 보여줍니다.
+- 햄버거 메뉴를 통해 로그아웃 및 회원탈퇴를 할 수 있습니다.
 
-<img width="200" alt="스크린샷 2023-04-06 오후 3 19 20" src="https://user-images.githubusercontent.com/97172050/230293024-8a9fbfd4-5261-4fe7-8a6e-acc862d65c7b.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 19 30" src="https://user-images.githubusercontent.com/97172050/230293034-e2e163c9-ce1e-49be-88d4-8da538d0c423.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 22 55" src="https://user-images.githubusercontent.com/97172050/230295857-7f7e3065-5765-4800-a6bf-6d7cd9e6c3bd.png">
+<p float="left">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 5 49 46" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/a33be650-3ad2-47d0-88d0-c1149f92b281">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 5 49 53" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/0d000a6f-a070-4fa1-8fd9-c6a6e93e492a">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 5 50 06" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/736895a6-aefb-4501-8aa0-0e64475732c8">
+</p>
 
 ### 문장 작성 페이지
 
@@ -61,10 +82,12 @@
   - 카드 비율
 - 이미지와 폰트는 각각 next/image와 next/font를 적극 사용하여 최적화 하였습니다.
 
-<img width="200" alt="스크린샷 2023-04-06 오후 3 19 43" src="https://user-images.githubusercontent.com/97172050/230294678-8fc21e2c-4395-4f29-a973-e074e363eed6.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 19 53" src="https://user-images.githubusercontent.com/97172050/230294686-772c3b2d-95e7-4fad-abfc-33493b3c994e.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 20 30" src="https://user-images.githubusercontent.com/97172050/230294687-80da99ae-4b0a-44fa-8d82-e3e5fef02bd6.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 21 09" src="https://user-images.githubusercontent.com/97172050/230294694-7d5c1608-a591-4db2-9bf9-2351346bf03e.png">
+<p float="left">
+  <img width="24%" alt="스크린샷 2023-06-01 오후 5 54 15" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/f8873308-7e38-40ef-9992-543ea116435e">
+  <img width="24%" alt="스크린샷 2023-06-01 오후 5 54 44" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/219b0450-f14e-4336-83ff-60fda20a2646">
+  <img width="24%" alt="스크린샷 2023-06-01 오후 5 55 01" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/1f60a6c0-99c1-4a99-a189-006c6c48334c">
+  <img width="24%" alt="스크린샷 2023-06-01 오후 5 55 50" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/cee896bd-e525-4536-852d-8d2aa072fa37">
+</p>
 
 ### 상세 페이지
 
@@ -72,15 +95,18 @@
 - 수정 및 삭제가 가능합니다.
 - 카드 이미지 다운로드가 가능합니다. 가로 2160픽셀의 고화질 PNG 파일로 저장됩니다.
 
-<img width="200" alt="스크린샷 2023-04-06 오후 3 21 37" src="https://user-images.githubusercontent.com/97172050/230296068-6108c2a6-e6b8-4201-b5bf-2e69335999f5.png">
+<img width="32%" alt="스크린샷 2023-06-01 오후 5 57 32" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/aaa6197e-5daa-4df7-bf1b-20a373fe062e">
 
 ### 아카이빙 페이지
 
 - 그동안 저장한 카드 이미지를 모아볼 수 있습니다. 클릭하면 상세페이지로 이동합니다.
 - 책 제목으로 검색이 가능합니다.
 
-<img width="200" alt="스크린샷 2023-04-06 오후 3 21 58" src="https://user-images.githubusercontent.com/97172050/230296148-5d75162f-068b-4dd4-bae9-1652f9ced829.png">
-<img width="200" alt="스크린샷 2023-04-06 오후 3 22 07" src="https://user-images.githubusercontent.com/97172050/230296152-09c7e29c-7be2-4035-87eb-4b8d42ee452a.png">
+<p float="left">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 6 05 58" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/a26c6f2a-beae-43ce-a822-a52915b85fdf">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 6 06 13" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/c9cfb47d-25ea-42d8-a704-883258d5a04a">
+  <img width="32%" alt="스크린샷 2023-06-01 오후 6 06 28" src="https://github.com/potenday-project/303TEN011-frontend/assets/97172050/93e6af45-ab0c-46dd-8e50-62f7ca711f8f">
+</p>
 
 ## 컨트리뷰터
 
